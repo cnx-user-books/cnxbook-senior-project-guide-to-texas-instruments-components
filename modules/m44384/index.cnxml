@@ -1,0 +1,28 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Analog</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44384</md:content-id>
+  <md:title>Analog</md:title>
+  <md:abstract>This module is the introduction to the analog section of the senior project book.</md:abstract>
+  <md:uuid>b7834741-a1ae-407b-ab9b-d1dbd3c86eff</md:uuid>
+</metadata>
+
+<content>
+    <para id="import-auto-id1171509536511"><emphasis effect="bold">Introduction</emphasis></para><para id="import-auto-id1171509646618">Your senior project will require a lot of analog circuits. The goal of this section of the book is to help you find the right parts for your design. Texas Instruments has tens of thousands of unique part numbers covering this broad area of IC technology. </para><para id="import-auto-id1171509570583">Reading the chapters that follow will help you remember the theory behind selecting the parts you will need. Our goal is to help you think through the process of selecting the right parts, and then actually finding them.</para><para id="import-auto-id1171507286452">Here are the topics of the chapters in this section, with the authors' names in parentheses:</para><list id="import-auto-id1171507513739" list-type="bulleted"><item>Operational amplifiers (Bruce Trump).</item>
+      <item>Data converters (Rick Downs and Tom Hendricks).</item>
+      <item>Wireless communication devices (Thomas Almholt and Farrukh Inam).</item>
+      <item>Interface devices (Thomas Kugelstadt).</item>
+      <item>System devices (Charles Hefner).</item>
+      <item>Power management (Upal Sengupta).</item></list><para id="import-auto-id1171509608535"><emphasis effect="bold">Packages</emphasis>
+</para><para id="import-auto-id1171510855214">You may notice that many of the devices you would like to use from TI will not be easy to insert into your printed circuit board. And because they are not dual inline packaged (DIP), they don’t plug into a prototyping board. This is an issue we discussed at length when we were selecting parts for the Senior Project Cabinet. We decided to go this route because when you get to your first post-collegiate project, these difficult-to-solder parts will be what you'll design with, as they take up less board space and are easier to use in automated production lines. It is also less expensive to use these smaller devices. So we chose to give you a bit of experience using these devices and prepare you for the future.</para><para id="import-auto-id1171508097762">But the news isn't all bad. There are adaptor boards available that will convert the quad flat package (QFP) to a DIP. One of them is shown in Figure 1.</para><figure id="import-auto-id1171506746729">
+      <media id="import-auto-id1171506855071" alt="">
+        <image mime-type="image/jpg" src="../../media/graphics1-3610.jpg" height="202" width="202"/>
+      </media>
+    </figure>
+    <para id="import-auto-id1171507439569">Figure 2 shows an alternate solution that allows you to build your own adaptor boards. It has multiple adaptor circuits on one board that split apart easily.</para><figure id="import-auto-id1171507621449">
+      <media id="import-auto-id1171506661228" alt="">
+        <image mime-type="image/jpg" src="../../media/graphics2-4be1.jpg" height="378" width="414"/>
+      </media>
+    </figure>
+    <para id="import-auto-id1171507869417">Enough about adaptors. It’s time for you to jump into the chapters on analog circuits. Each was written by an expert on TI’s application staff. Learn to enjoy the task of revisiting material you forgot right after the test. This will not be the first time you will relearn material, or in some cases learn it for the first time. It will be a career-long exercise as you grow with the technology.</para></content>
+</document>

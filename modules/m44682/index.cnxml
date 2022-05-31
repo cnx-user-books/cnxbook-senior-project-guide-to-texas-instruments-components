@@ -1,0 +1,98 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Consumer and Computer Interface Circuits</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44682</md:content-id>
+  <md:title>Consumer and Computer Interface Circuits</md:title>
+  <md:abstract>This module discusses the input and output circuits available from Texas Instruments for use in consumer and computer applications.  It is part of a collection of modules introducing all of TI's components to seniors starting their senior project.</md:abstract>
+  <md:uuid>f9274d37-93b2-4720-abb3-2cbad300219f</md:uuid>
+</metadata>
+
+<content>
+    <para id="import-auto-id1171581567623"><emphasis effect="bold">Technical background</emphasis>
+    </para><para id="import-auto-id1171551334128">As media content increasingly becomes a part of our daily lives, the need to transfer that content between devices with ease, speed and reliability is spurring development of many types of interfaces. </para><figure id="import-auto-id1171550794789"><media id="import-auto-id1171582260013" alt="">
+		<image mime-type="image/png" src="../../media/graphics1-ae71.png" height="348" width="576"/>
+	</media>
+	</figure><para id="import-auto-id1171562704229">Figure 1, which shows the back panel of an A/V receiver from Pioneer Electronics, is an extreme example of a large number of interfaces on a single consumer electronic device. Having this many interfaces increases design complexity and device cost. </para><para id="eip-276">Electronics manufacturers face challenges in deciding what interfaces to implement on their devices to meet demanding consumer market requirements. This is becoming more challenging, as the space where you can put an interface connector shrinks with the size of the device. With the pervasiveness of high-quality digital formats, interfaces have transitioned from analog to digital. And given the need to reduce the size of the connector, the number of wires, power consumption and interface cost, digital interfaces are also moving from parallel data transmission to serial. To maintain the data bandwidth with fewer data lines, the data rate on serial interfaces is much higher than parallel interfaces.</para><para id="import-auto-id1171577504103">Some of the factors that go into selecting an interface include:</para><list id="import-auto-id1171550172708" list-type="bulleted"><item>Analog or digital.</item>
+      <item>Ease of use, plug-and-play (robust, interoperable).</item>
+      <item>Meeting application needs (bulk transfer vs. streaming).</item>
+      <item>Backward compatibility (USB 3.0, 2.0, 1.1).</item>
+      <item>Upgrade path.</item>
+      <item>Bandwidth-supported.</item>
+      <item>Proprietary vs. industrial standards.</item>
+      <item>Low silicon chip cost as well as system implementation cost.</item>
+      <item>Power consumption.</item>
+      <item>Mechanical connector dimensions.</item>
+      <item>Regulatory compliance (electromagnetic interference).</item>
+      <item>Firmware and software requirements.</item>
+      <item>Royalty fees.</item>
+    </list><figure id="import-auto-id1171555792067"><media id="import-auto-id1171557725248" alt="">
+		<image mime-type="image/png" src="../../media/graphics2-a9ad.png" height="373" width="576"/>
+	</media>
+</figure><para id="eip-754">Figure 2 is an example of a digital interface replacing an analog interface, while providing ease of use and a higher-quality A/V experience.</para><para id="import-auto-id1171556089265"><emphasis effect="bold">Consumer and computing interface trends</emphasis></para><para id="eip-376">Some of the current consumer and computing interface trends include:</para><list id="import-auto-id1171550247276" list-type="bulleted"><item>Analog interface to digital interface.</item>
+      <item>Parallel interface to serial interface.</item>
+      <item>Interface speed increasing (currently 10 Gbps).</item>
+      <item>Lower power consumption.</item>
+      <item>Lower implementation cost.</item>
+      <item>Smaller connectors.</item>
+      <item>Universal interface that aggregates multiple interfaces (e.g. Thunderbolt).</item>
+    </list><para id="import-auto-id1171550275099"><emphasis effect="bold">Device types</emphasis>
+    </para><para id="import-auto-id1171551055190">Many types of devices with different functions will help you implement the right interface on a system targeted for consumer and computing applications. Let's take a look at a few of them.</para><para id="import-auto-id1171556574872"><emphasis effect="bold">Bridge devices</emphasis>
+    </para><para id="import-auto-id1171550812745">These devices bridge, or translate, between two different interfaces. TI's TUSB3410 is an example of a bridge device that provides bridging between a USB port and an enhanced UART serial port. </para><figure id="import-auto-id1171560615993"><media id="import-auto-id1171550426588" alt="">
+		<image mime-type="image/png" src="../../media/TUSB3410.png" height="149" width="504"/>
+	</media>
+	</figure><para id="import-auto-id8601013">There are many examples of TSUB3410 bridging functions at <link url="http://www.ti.com/product/tusb3410"><emphasis effect="underline">http://www.ti.com/product/tusb3410</emphasis>.</link> Figure 3 is a block diagram showing how the TUSB3410 helps designers convert a peripheral device with a legacy serial interface to a USB-compliant device.</para><para id="import-auto-id1171550606620">Examples include:</para><para id="import-auto-id1171570730316">XIO2001 – PCIe to PCI bridge: <link url="http://www.ti.com/product/xio2001"><emphasis effect="underline">http://www.ti.com/product/xio2001</emphasis>.</link></para><para id="import-auto-id1171551540906">TUSB9261 – USB 3.0 to SATA bridge: <link url="http://www.ti.com/product/tusb9261"><emphasis effect="underline">http://www.ti.com/product/tusb9261</emphasis>.</link></para><para id="import-auto-id1171549023536"><emphasis effect="bold">Host or device controller devices</emphasis>
+    </para><para id="import-auto-id1870657">These types of controller devices provide more functionality than bridging devices and allow designers to implement a complete interface on either a host PC device or a peripheral device.</para><para id="import-auto-id1171550925548">Examples include:</para><para id="import-auto-id1171550216408">TUSB7320 – USB 3.0 xHCI host controller: <link url="http://www.ti.com/product/tusb7320"><emphasis effect="underline">http://www.ti.com/product/tusb7320</emphasis>.</link></para><para id="import-auto-id1171573106427">XIO2213B – 1394b OHCI host controller: <link url="http://www.ti.com/product/xio2213b"><emphasis effect="underline">http://www.ti.com/product/xio2213b</emphasis>.</link></para><para id="import-auto-id1171556480498">TUSB3210 – USB GPIO device controller: <link url="http://www.ti.com/product/tusb3210"><emphasis effect="underline">http://www.ti.com/product/tusb3210</emphasis>.</link></para><para id="import-auto-id1171572747042">PCI1510 – PCI cardbus controller: <link url="http://www.ti.com/product/pci1510"><emphasis effect="underline">http://www.ti.com/product/pci1510</emphasis>.</link></para><para id="import-auto-id1171576457720"><emphasis effect="bold">Parallel to serial interface and serial to parallel interface converters </emphasis>
+    </para><para id="import-auto-id1171550895701">This type of device converts a parallel interface (normally single-ended CMOS) to a serial interface (normally a differential low-voltage signal) and vice versa. These devices help designers quickly transition a system using a legacy parallel interface to a newer serial interface.</para><para id="import-auto-id1171550570192">Here are several examples:</para><para id="import-auto-id1171555946007">SN75LVDS83C – 28 parallel in, four serial out FlatLink™ transmitter: <link url="http://www.ti.com/product/sn75lvds83c"><emphasis effect="underline">http://www.ti.com/product/sn75lvds83c</emphasis>.</link></para><para id="import-auto-id2726434">SN75LVDS86A – three serial in, 21 parallel out FlatLink™ receiver: <link url="http://www.ti.com/product/sn75lvds86a"><emphasis effect="underline">http://www.ti.com/product/sn75lvds86a</emphasis>.</link></para><para id="import-auto-id1171556883461">TFP410 – 24 parallel in, three serial out PanelBus DVI transmitter: <link url="http://www.ti.com/product/tfp410"><emphasis effect="underline">http://www.ti.com/product/tfp410</emphasis>.</link></para><para id="import-auto-id1171555916780">TFP401A – three serial in, 48 parallel out PanelBus DVI receiver: <link url="http://www.ti.com/product/tfp401a"><emphasis effect="underline">http://www.ti.com/product/tfp401a</emphasis>.</link></para><para id="import-auto-id1171580104815">SN65LVDS301 – 27 parallel in, three serial out FlatLink3G transmitter: <link url="http://www.ti.com/product/sn65lvds301"><emphasis effect="underline">http://www.ti.com/product/sn65lvds301</emphasis>.</link></para><para id="import-auto-id1171561724969">SN65LVDS302 – three serial in, 27 parallel out FlatLink3G receiver: <link url="http://www.ti.com/product/sn65lvds302"><emphasis effect="underline">http://www.ti.com/product/sn65lvds302</emphasis>.</link></para><para id="import-auto-id1171550770554"><emphasis effect="bold">Voltage-level translators</emphasis>
+    </para><para id="import-auto-id1171549926730">Level translator devices provide a way for system designers to convert electrical signals from one interface standard to another. </para><para id="import-auto-id1171551977023">Examples include:</para><para id="import-auto-id1171573058109">SN75DP139 – dual-mode DisplayPort to DVI/HDMI level translator (3.4 Gbps): <link url="http://www.ti.com/product/sn75dp139"><emphasis effect="underline">http://www.ti.com/product/sn75dp139</emphasis>.</link></para><para id="import-auto-id1171581124462">SN75DP129 – dual-mode DisplayPort to DVI/HDMI level translator (2.5 Gbps): <link url="http://www.ti.com/product/sn75dp129"><emphasis effect="underline">http://www.ti.com/product/sn75dp129</emphasis>.</link></para><para id="import-auto-id1171557644323"><emphasis effect="bold">Switching or muxing devices</emphasis>
+    </para><para id="import-auto-id1171571670649">These types of devices allow multiple input sources to switch in or switch out to multiple output devices. Two types of switching devices – active and passive switches – allow designers to select the appropriate device based on cost-constraint and performance requirements.</para><para id="import-auto-id1171581054512">Active switch examples include:</para><para id="import-auto-id1171549788708">SN75DP126 – one input to two output DisplayPort switch: <link url="http://www.ti.com/product/sn75dp126"><emphasis effect="underline">http://www.ti.com/product/sn75dp126</emphasis>.</link></para><para id="import-auto-id1171550570088">TMDS442 – four input to two output DVI/HDMI switch: <link url="http://www.ti.com/product/tmds442"><emphasis effect="underline">http://www.ti.com/product/tmds442</emphasis>.</link></para><para id="import-auto-id1171580108797">TMDS361B – three input to one output DVI/HDMI switch: <link url="http://www.ti.com/product/tmds442"><emphasis effect="underline">http://www.ti.com/product/tmds442</emphasis>.</link></para><para id="import-auto-id1171550809377">Passive switch examples include:</para><para id="import-auto-id1171556509407">HD3SS212 – 5.4-Gbps DisplayPort 1.2 two input to one output switch: <link url="http://www.ti.com/product/hd3ss212">
+        <emphasis effect="underline">http://www.ti.com/product/hd3ss212</emphasis>.</link>
+    </para><para id="import-auto-id1171557500216">HD3SS3412 – 12-Gbps PCIe Gen III/USB 3/DisplayPort four-channel 2:1 switch: <link url="http://www.ti.com/product/hd3ss3412">
+        <emphasis effect="underline">http://www.ti.com/product/hd3ss3412</emphasis>.</link>    </para><para id="import-auto-id1171550967408"><emphasis effect="bold">Hub or fanout devices</emphasis>
+    </para><para id="import-auto-id1171550201805">These types of devices allow system designers to increase the number of interface ports for a particular interface standard in a cost-efficient way without suffering performance degradation.</para><para id="import-auto-id1171552059526">Examples include:</para><para id="import-auto-id1171572767718">TUSB8040A – one upstream to four downstream USB 3.0 SuperSpeed hub: <link url="http://www.ti.com/product/tusb8040a"><emphasis effect="underline">http://www.ti.com/product/tusb8040a</emphasis>.</link></para><para id="import-auto-id1171550853040">TUSB2046B – One upstream to four downstream USB FullSpeed hub: <link url="http://www.ti.com/product/tusb2046b"><emphasis effect="underline">http://www.ti.com/product/tusb2046b</emphasis>.</link></para><para id="import-auto-id1171555408598">XIO3130 – one upstream to three downstream PCI Express x1 switch: <link url="http://www.ti.com/product/xio3130"><emphasis effect="underline">http://www.ti.com/product/xio3130</emphasis>.</link></para><para id="import-auto-id1171551032853"><emphasis effect="bold">Signal-conditioning devices</emphasis>
+    </para><para id="import-auto-id1171551532213">These types of devices allow system designers to compensate for signal loss caused by long traces or cable length and improve signal quality at the connector or receiving device end to meet specification requirements. </para><para id="import-auto-id1171563291591">Examples include:</para><para id="import-auto-id2222541">SN65LVPE502A – dual-channel USB 3.0 redriver/equalizer: <link url="http://www.ti.com/product/sn65lvpe502a">
+        <emphasis effect="underline">http://www.ti.com/product/sn65lvpe502a</emphasis>.</link></para><para id="import-auto-id1171556339032">SN75DP130 – DisplayPort redriver with link training: <link url="http://www.ti.com/product/sn75dp130"><emphasis effect="underline">http://www.ti.com/product/sn75dp130</emphasis>.</link></para><para id="import-auto-id1171578411168">For a more comprehensive list of interface devices that TI offers, see <link url="http://www.ti.com/lsds/ti/analog/interface.page">
+        <emphasis effect="underline">http://www.ti.com/lsds/ti/analog/interface.page</emphasis>.</link>
+    </para><para id="import-auto-id1171550330258"><emphasis effect="bold">Industrial standards defining digital interfaces</emphasis>
+    </para><para id="import-auto-id1171550889983">There are overwhelming advantages to implement an industrial standard rather than a proprietary interface to ensure wide adoption, economy of scale for low cost, interoperability and robustness, and consumer awareness.</para><table id="eip-529" summary="Industry standard digital interface summary">
+<tgroup cols="2"><tbody>
+		<row>
+			<entry><emphasis effect="bold">End-equipment application</emphasis>
+			</entry>
+			<entry><emphasis effect="bold">Industrial standard digital interface</emphasis>
+			</entry>
+		</row>
+		<row>
+			<entry>Storage (external)</entry>
+			<entry>eSATA,USB, 1394, PCI Express</entry>
+		</row>
+		<row>
+			<entry>Storage (internal)</entry>
+			<entry>SATA, SAS</entry>
+		</row>
+		<row>
+			<entry>Video (external)</entry>
+			<entry>DVI, HDMI, DisplayPort, 1394, USB</entry>
+		</row>
+		<row>
+			<entry>System bus</entry>
+			<entry>PCI, PCI Express</entry>
+		</row>
+		<row>
+			<entry>Peripheral</entry>
+			<entry>USB, 1394</entry>
+		</row>
+		<row>
+			<entry>Aggregator</entry>
+			<entry>Thunderbolt</entry>
+		</row>
+			</tbody>
+
+</tgroup><caption>Industry standards for digital interfaces</caption>
+</table><para id="import-auto-id1171549130709"><emphasis effect="bold">How to read a data sheet</emphasis>
+    </para><para id="import-auto-id1171570865322"><emphasis effect="bold">Features.</emphasis> This section generally describes the type of industrial standard supported, data rate, number of channels, number of pins and package type.
+    </para><para id="import-auto-id1171550919822"><emphasis effect="bold">Functional description or theory of operations.</emphasis> This section describes the function of the device in more detail and includes block  diagrams, a typical application circuit, timing diagrams and register tables (where applicable).
+    </para><para id="import-auto-id1171561598840"><emphasis effect="bold">Terminal description.</emphasis> This section lists the device pin terminal list, with descriptions of what the pin does.
+    </para><para id="import-auto-id1171581887488"><emphasis effect="bold">Electrical characteristics.</emphasis> This section specifies the electrical signal levels of each pin as well as the power-supply requirements.
+    </para><para id="import-auto-id1171550342537"><emphasis effect="bold">Package mechanicals.</emphasis> This section specifies the mechanical dimensions of the device package to help designers lay out the printed circuit board.
+    </para></content>
+</document>

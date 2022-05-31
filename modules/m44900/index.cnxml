@@ -1,0 +1,23 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Embedded Processors</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44900</md:content-id>
+  <md:title>Embedded Processors</md:title>
+  <md:abstract>This module introduces the embedded processor section of the senior project textbook.</md:abstract>
+  <md:uuid>bf030df2-f7af-4f2e-a1fa-6adede76287f</md:uuid>
+</metadata>
+
+<content>
+    <para id="import-auto-id1164953924058">
+      <emphasis effect="bold">Introduction</emphasis>
+    </para>
+    <para id="import-auto-id1164963747243">Texas Instruments has a wide range of embedded processors available to design into your project. Your choices include virtually everything from very low cost to very high performance, as well as a new performance metric called power dissipation. Figure 1 gives a quick overview of our embedded processor product line.</para><figure id="import-auto-id1164965337216">
+      <media id="import-auto-id1164951669196" alt="">
+        <image mime-type="image/jpg" src="../../media/graphics1-46f1.jpg" height="411" width="623"/>
+      </media>
+    </figure>
+    <para id="import-auto-id1164950580579">You should be able to complete your project using one of the following product families:</para><list id="eip-388"><item>The MSP430™ ultra-low-power system microcontroller family.</item>
+<item>C2000™ microcontrollers used in control systems.</item>
+<item>ARM devices (specifically the M3/4 microcontrollers).</item>
+<item>The C5000™ low-power signal-processing solution.</item></list><para id="import-auto-id1164959535613">TI's other embedded processors fall beyond the scope of a typical two-semester senior project. We will spend time on the families listed here in the following chapters, focusing on those embedded processors that will best fit your project.</para><para id="import-auto-id1164951499357">Remember, the best way to take advantage of an embedded processor is to use an evaluation module (EVM). You can find these listed for various processors on <link url="http://www.ti.com/"><emphasis effect="underline">www.ti.com</emphasis>.</link></para></content>
+</document>

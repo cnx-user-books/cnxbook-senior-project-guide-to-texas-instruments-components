@@ -1,0 +1,916 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Discrete Components</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45771</md:content-id>
+  <md:title>Discrete Components</md:title>
+  <md:abstract>This module is written to help students doing their senior project design chose the needed discrete components.  It will include some tips about designing with discrete components along with giving a list of ones that will most likely fulfill their needs.</md:abstract>
+  <md:uuid>bce4e8d9-1f12-4805-97f4-c2f5f2403504</md:uuid>
+</metadata>
+
+<content>
+    <para id="import-auto-id1170006173975">
+      <emphasis effect="bold">Discrete components</emphasis>
+    </para>
+    <para id="import-auto-id1170006235589">It is almost impossible to complete a circuit design without including discrete components.  Most instruction at university courses about these devices focus on the theory of their operation.  You will learn about Ohm’s law and all of the theory that ties the law to resistors, capacitors and inductors.  You’ll learn transistor theory and all of the aspects that it includes.  And as I remember, the concepts of a diode seem to have fallen into the same discussion.</para>
+    <para id="import-auto-id1170006234288">This section will be split into two subsections:</para>
+    <list id="import-auto-id1170006243696" list-type="bulleted">
+      <item>Passive components.</item>
+      <item>Active components.</item>
+    </list>
+    <para id="import-auto-id1170006217709">
+      <emphasis effect="bold">Passive components</emphasis>
+    </para>
+    <para id="import-auto-id1170006176560">Passive components are resistors, capacitors and inductors.  The surprise that most circuit designers encounter when first using passive components can be shown in Figure 1: the circuit equivalent for a resistor, capacitor or inductor.</para>
+    <figure id="import-auto-id1170006186962"><media id="import-auto-id1170006205806" alt="">
+        <image mime-type="image/png" src="../../media/Object 1-1fe5.png" height="96" width="297"/>
+      </media>
+    <caption>The equivalent circuit for a resistor, capacitor or inductor.</caption></figure><para id="import-auto-id1170006221966">Put into words, every resistor has an element of inductance and capacitance.  Every capacitor has an element of resistance and inductance.  And every inductor has an element of resistance and capacitance.  In each case, their influence on the actual value of the component will be a function of the frequency of the signal applied to the device.</para>
+    <para id="import-auto-id1170006218169">Here are a couple of examples to get you thinking:</para>
+    <list id="import-auto-id1170006177498" list-type="bulleted">
+      <item>A wire-wound resistor has an element of inductance that may significantly alter the performance of the resistor over the frequency range of the circuit design.</item>
+      <item>In a power supply, a small ceramic capacitor may be required to eliminate the high frequencies passed by the larger electrolytic capacitor due to its significantly lower inductance component as a result of how it is made.</item>
+      <item>An inductor that has been made by winding wire around a core will have the DC resistance component of that wire.</item>
+    </list>
+    <para id="import-auto-id1170006209238">
+      <emphasis effect="bold">Active components</emphasis>
+    </para>
+    <para id="import-auto-id1170006231496">I’ll cover two basic types of active components: diodes and transistors. A diode in its most simple application allows current to flow in only one direction.  A transistor in its most simple application can act as a signal amplifier or as a switch.</para>
+    <para id="import-auto-id1170006174250">Since both of these active elements can be easily integrated onto a silicon substrate, they are the workhorses found in all integrated circuits available today, both analog and digital.  The only time you will need to use discrete diodes and transistors is when you need to do something that is considered beyond the capability of an IC.  (Generally, what is considered beyond the capability of an IC is too high of a voltage on the device or too high of a current flowing through the device.)</para>
+    <para id="import-auto-id1170006244314">In each of the discussions on these discrete components, I will assume that you already understand the theory behind them and are looking for some basic ideas on how to use them in your senior project design.</para>
+    <para id="import-auto-id1170006218134">
+      <emphasis effect="bold">Resistors</emphasis>
+    </para>
+    <para id="import-auto-id1170006186807">Resistors are typically the easiest discrete components to understand and use.  They can be found in all sorts of sizes and configurations.  Rather than have an exhaustive discussion on resistors, let’s just do a quick overview.</para>
+    <para id="import-auto-id1170006245430">The film resistor is probably the easiest-to-recognize form of a resistor.  Besides having to know the color code for determining the value of the resistor, it is also important to know the tolerance and wattage.</para>
+    <para id="import-auto-id1170006226926">
+      <emphasis effect="bold">Color code</emphasis>
+    </para>
+    <para id="import-auto-id1170006226929">There are several ways to remember the color code.  The mnemonic I used to learn it many years ago is not politically correct, so I will not use it here as an example.  But you can find several on the Web or from a professor that can help you learn the color code.</para>
+    <para id="import-auto-id1170006166025">So the first three colors for a 1K-ohm resistor would be brown, black and red. Figure 2 is a 1K ohm, ¼ watt, 5 percent resistor.</para>
+    <figure id="import-auto-id1170006197494"><media id="import-auto-id1170006243776" alt="">
+        <image mime-type="image/jpg" src="../../media/1K ohm resistor.jpg" height="200" width="200"/>
+      </media>
+    <caption>A 1K ohm, 1/4 watt, 5 percent resistor.</caption></figure><para id="import-auto-id1170006218152">Notice that the fourth band in the picture is gold, which means it has a 5 percent tolerance.</para>
+    <para id="import-auto-id1170006231526">
+      <emphasis effect="bold">Tolerance</emphasis>
+    </para>
+    <para id="import-auto-id1170006237300">Most resistors found in a lab have a 5 percent tolerance.  This means that a 1K-ohm resistor could vary anywhere from 950 to 1,050 ohms.  An interesting observation is that the 5 percent resistor series is set up such that two adjacent resistor values are within 10 percent of each other.  That means that a resistor, once manufactured, will always fit into one of the tolerances.</para>
+    <para id="import-auto-id1170006237302">In practical terms, the two resistor values adjacent to the 1-K resistor are the 910 ohm and 1.1-K ohm.  Expressed as in Table 1, you can see how this works.</para>
+    <table id="import-auto-id1170006236947" summary="Example of the overlap between 5 percent tolerance resistors.">
+<tgroup cols="5"><colspec colnum="1" colname="c1"/>
+        <colspec colnum="2" colname="c2"/>
+        <colspec colnum="3" colname="c3"/>
+        <colspec colnum="4" colname="c4"/>
+        <colspec colnum="5" colname="c5"/>
+        <thead>
+          <row>
+            <entry>
+             <emphasis effect="bold">Nominal</emphasis>
+            </entry>
+            <entry>
+             <emphasis effect="bold">-5%</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">+5%</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Overlap</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Color code</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>910</entry>
+            <entry>865</entry>
+            <entry>955</entry>
+            <entry>5</entry>
+            <entry>W, Br, Br</entry>
+          </row>
+          <row>
+            <entry>1 K</entry>
+            <entry>950</entry>
+            <entry>1,050</entry>
+            <entry/>
+            <entry>Br, Bl, R</entry>
+          </row>
+          <row>
+            <entry>1.1 K</entry>
+            <entry>1,045</entry>
+            <entry>1,155</entry>
+            <entry>5</entry>
+            <entry>Br, Br, R</entry>
+          </row>
+        </tbody>
+      
+
+
+</tgroup><caption>Example of the overlap between 5 percent tolerance resistors.</caption>
+</table><para id="import-auto-id1169984274051">The 910-ohm resistor could be as much as 955 ohms on the high side of its allowable tolerance and the 1K-ohm resistor could be as little as 950 ohms on the low side of its allowable tolerance, giving a 5-ohm overlap. </para>
+    <para id="import-auto-id1169978431048">Knowing this piece of information can help when picking out the next-size-larger resistor.  But in case you don’t want to do this exercise, below is a chart with the values for a 5 percent tolerance resistor.  Notice that it also includes a chart for 10 percent tolerance capacitors.</para><para id="eip-917"><media id="import-auto-id7379" alt="">
+        <image mime-type="image/jpg" src="../../media/Picture 2.jpg" height="550" width="600"/>
+      </media>
+
+ 
+     
+    </para><para id="import-auto-id1170006218235">A tighter tolerance resistor might be wire-wound in order to guarantee its tolerance.  But due to the nature of its manufacture, it may tend to have an inductive component at higher frequencies.  So when picking a resistor for the circuit, keep this in mind.  I’ll discuss this issue further in the Capacitors section.</para>
+    <para id="import-auto-id1170006219177">
+      <emphasis effect="bold">Wattage</emphasis>
+    </para>
+    <para id="import-auto-id1170006236937">One mistake you should try to avoid in circuit design is using a resistor that is not capable of handling the power dissipation it must handle.  It is easy to assume that a ¼ watt resistor can handle ¼ of a watt.  But this is incorrect on two counts: failing to determine the power dissipation of the resistor in the active circuit, and assuming that a ¼ watt resistor will handle a ¼ watt load.</para>
+    <para id="import-auto-id1170006234582">You’d realize the first error relatively fast, once you’d turned on the power.  The resistor in question would become warm to the touch, then get really hot to the touch, begin to smoke or blow up.  All of these conditions indicate that you need a larger-wattage resistor.  To determine the power through a resistor, it is best to use Ohm’s law (Equation 1) to determine the power:</para>
+    <para id="import-auto-id1170006234588">E = I x R </para>
+    <para id="import-auto-id1170006234590">Power = E x I = E^2/R = (I^2) x R </para>
+    <para id="import-auto-id1170006186929">You can avoid the second error by applying a good engineering practice: always double the calculated (or measured) power by 2 to get the wattage for the resistor.  Simply stated, a ¼ watt resistor should never see more than <emphasis effect="bold">⅛ </emphasis>of a watt of power through it.</para>
+    <para id="import-auto-id1170006246942"><emphasis effect="bold">Picking a resistor</emphasis>
+    </para><para id="import-auto-id1170006229345">Resistors are usually commonly stocked in the lab.  In many cases, they are typical ¼ watt, 5 percent carbon film resistors.  This is where the color-code chart becomes handy: to make sure you actually have the resistors you need.  Your lab may also have surface-mounted resistors.  These are great to use when you need a smaller footprint for the resistor and you have the tools to properly attach them to the printed circuit board.</para>
+    <para id="import-auto-id1170006229351">
+      <emphasis effect="bold">Color-code chart</emphasis>
+    </para>
+    <para id="import-auto-id1170006244357">Figure 3 Shows a typical resistor color-code chart.  </para><figure id="import-auto-id1169992007740"><media id="import-auto-id1169998058041" alt="">
+        <image mime-type="image/jpg" src="../../media/Picture 1-fc59.jpg" height="316" width="312"/>
+      </media>
+    <caption>Resistor color code chart.</caption></figure><para id="import-auto-id1170004648961">There are many others available if this one doesn’t suit you.  You can find more charts here: <link url="https://www.google.com/search?q=resistor+color+code+chart&amp;hl=en&amp;tbo=u&amp;tbm=isch&amp;source=univ&amp;sa=X&amp;ei=2XvwUJ_RDcjm2AW084GwDA&amp;ved=0CC4QsAQ&amp;biw=1680&amp;bih=890"><emphasis effect="underline">https://www.google.com/search?q=resistor+color+code+chart&amp;hl=en&amp;tbo=u&amp;tbm=isch&amp;source=univ&amp;sa=X&amp;ei=2XvwUJ_RDcjm2AW084GwDA&amp;ved=0CC4QsAQ&amp;biw=1680&amp;bih=890</emphasis></link><emphasis effect="underline">.</emphasis></para>
+    <para id="import-auto-id1169979764177">
+      <emphasis effect="bold">Digi-Key part numbers</emphasis>
+    </para>
+    <para id="import-auto-id1169982203754">Obtaining resistors for your project should be relatively easy.  They are usually stocked in the lab.  But if they are not, there is a quick way to order them from Digi-Key while you are ordering other parts.  </para>
+    <para id="import-auto-id1169995308299">The part number you will need for any ¼ watt resistor from Digi-Key is put in an easy format.  The 1-ohm through 9.1-ohm resistors have part numbers with the form of 1.0QBK-ND through 9.1QBK-ND.  The 10-ohm through 91-ohm resistors have part numbers with the form 10QBK-ND through 91QBK-ND.  Table 2 lists the general forms for each decade:</para><table id="import-auto-id1169995728515" summary="Generic form for Digi-Key part numbers of 1/4 watt resistors.">
+<tgroup cols="2"><colspec colnum="1" colname="c1"/>
+        <colspec colnum="2" colname="c2"/>
+        <thead>
+          <row>
+            <entry>
+                <emphasis effect="bold">Ohm value</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Digi-Key part No.</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>1</entry>
+            <entry>1.0QBK-ND</entry>
+          </row>
+          <row>
+            <entry>10</entry>
+            <entry>10QBK-ND</entry>
+          </row>
+          <row>
+            <entry>100</entry>
+            <entry>100QBK-ND</entry>
+          </row>
+          <row>
+            <entry>1 K</entry>
+            <entry>1.0KQBK-ND</entry>
+          </row>
+          <row>
+            <entry>10 K</entry>
+            <entry>10KQBK-ND</entry>
+          </row>
+          <row>
+            <entry>100 K</entry>
+            <entry>100KQBK-ND</entry>
+          </row>
+          <row>
+            <entry>1 M</entry>
+            <entry>1.0MQBK-ND</entry>
+          </row>
+          <row>
+            <entry>10 M</entry>
+            <entry>10MQBK-ND</entry>
+          </row>
+        </tbody>
+      
+
+</tgroup><caption>Generic form for Digi-Key part numbers of 1/4 watt resistors.</caption>
+</table><para id="import-auto-id1169999281541">
+      <emphasis effect="bold">Capacitors</emphasis>
+    </para>
+    <para id="import-auto-id1169975707292">There are many capacitors to choose from; that makes it easy to get thoroughly confused when trying to select them.  To keep our discussion relatively straightforward, I will describe only a few of the more popular versions.  </para>
+    <para id="import-auto-id1169984812801">First, capacitors come in many shapes and sizes, such as:</para>
+    <list id="import-auto-id1169986970312" list-type="bulleted">
+      <item>Ceramic.</item>
+      <item>Electrolytic.</item>
+      <item>Tantalum.</item>
+    </list>
+    <para id="import-auto-id1394166">They are also used in many different applications, such as:</para>
+    <list id="import-auto-id1169986586360" list-type="bulleted">
+      <item>Power supplies.</item>
+      <item>Bypass capacitors.</item>
+      <item>Simple oscillators.</item>
+    </list>
+    <para id="import-auto-id1169995655467">For the purposes of your senior project, these parameters should be adequate.  I will assume that you know the theory necessary to be able to use them in a circuit.</para>
+    <para id="import-auto-id1169997122094">This discussion will focus on the real-world use of capacitors in a circuit, or at least the ones you will most likely face while designing your senior project.</para>
+    <para id="import-auto-id1170004237957">
+      <emphasis effect="bold">Shapes</emphasis>
+    </para>
+    <para id="import-auto-id1170002511614">It is generally easy to determine the type of capacitor by its shape.  The two most common shapes are a cylindrical device with two leads, either on each end or both out the same end.  In most cases, there will be markings to let you know which side is the positive side and which is the negative side.  It is important that you make the positive and negative connections properly or the capacitor could blow up.  </para>
+    <para id="import-auto-id1169991492217">Electrolytic and tantalum capacitors are made in this shape.  They also tend to have large capacitive values.  I generally think of them in the 10-µF to 500-µF range, although they are available in ranges both below and above this.  These capacitors are often used as storage elements, or perhaps in a power supply.</para>
+    <para id="import-auto-id1169985209869">Another shape is a flat shape that looks a bit like a coin with two wires sticking out of its edge.  These capacitors are usually used for signals in a circuit.  Their capacitive values are in the pF range to units of µFs.  And of course, they can go beyond this range.  </para>
+    <para id="import-auto-id1170004022941">Finally, there are surface-mount capacitors.  Unlike the previous two shapes, these do not have leads on them. Rather than having leads that go through holes in the printed circuit board, these are mounted on the surface of the printed circuit board.</para>
+    <para id="import-auto-id1169993829004">
+      <emphasis effect="bold">Uses</emphasis>
+    </para>
+    <para id="import-auto-id1170002706930">For the purposes of this discussion, I’ll limit the list of uses for a capacitor to:</para>
+    <list id="import-auto-id1169997208129" list-type="bulleted">
+      <item>A storage element.</item>
+      <item>A filter element.</item>
+      <item>A timer element.</item>
+    </list>
+    <para id="import-auto-id1170001598486">Virtually every power supply has some sort of a storage element on its output to make sure that there is enough energy stored to handle variations in current demand while keeping a relatively constant voltage.  Typically, a large electrolytic capacitor is used to give the necessary buffering.</para>
+    <para id="import-auto-id1169995598624">In many DC-to-DC converters, a toroid-based transformer allows a higher frequency through the transformer (many simple power supplies use 50 or 60 Hz from the power grid), giving higher efficiencies.  But, it also has frequency components on the output of the DC-to-DC converter that are difficult for a large electrolytic capacitor to filter out; this is a result of the significant inductance component found in the capacitor.  In these cases, a ceramic capacitor is placed in parallel with the larger electrolytic.  Given its construction, the ceramic capacitor has very little inductance and therefore can filter out the higher frequencies that the larger electrolytic capacitor does not see.</para>
+    <para id="import-auto-id1169997213673">To extend this idea, ceramic capacitors work well with resistors (and inductors) to create filter elements.  Adding active components such as transistors or operational amplifiers can perform significant filtering of a signal.  </para>
+    <para id="import-auto-id1169988224532">Finally, you can use capacitors along with resistors to create timing elements and clock generators.  Once again, this is best accomplished with the inclusion of active components.</para>
+    <para id="import-auto-id1169982561006">
+      <emphasis effect="bold">Picking a part</emphasis>
+    </para>
+    <para id="import-auto-id1169982593670">Table 3 is a chart to help you pick the best part for your design.  I have included the Digi-Key part number for each to make it easy for you to order the right part.</para><table id="import-auto-id6323212" summary="Selected Capacitors with their Digi-Key part numbers.">
+<tgroup cols="4"><colspec colnum="1" colname="c1"/>
+        <colspec colnum="2" colname="c2"/>
+        <colspec colnum="3" colname="c3"/>
+        <colspec colnum="4" colname="c4"/>
+        <thead>
+          <row>
+            <entry>
+                <emphasis effect="bold">Type</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Farads</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Voltage</emphasis>
+            </entry>
+            <entry>
+                 <emphasis effect="bold">Digi-Key part No.</emphasis>
+             </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+                 <emphasis effect="bold">Electrolytic</emphasis>
+             </entry>
+            <entry/>
+            <entry/>
+            <entry/>
+          </row>
+          <row>
+            <entry/>
+            <entry>10 µF</entry>
+            <entry>250 V</entry>
+            <entry>565-1201-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>100 µF</entry>
+            <entry>250 V</entry>
+            <entry>565-1397-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>200 µF</entry>
+            <entry>16 V</entry>
+            <entry>NLW200-16-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>500 µF</entry>
+            <entry>16 V</entry>
+            <entry>WBR500-16A-ND</entry>
+          </row>
+          <row>
+            <entry>
+                 <emphasis effect="bold">Ceramic</emphasis>
+             </entry>
+            <entry/>
+            <entry/>
+            <entry/>
+          </row>
+          <row>
+            <entry/>
+            <entry>0.001 µF</entry>
+            <entry>50 V</entry>
+            <entry>490-3814-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>0.01 µF</entry>
+            <entry>50 V</entry>
+            <entry>490-5396-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>0.1 µF</entry>
+            <entry>50 V</entry>
+            <entry>490-5401-ND</entry>
+          </row>
+          <row>
+            <entry>
+                 <emphasis effect="bold">Surface-mount</emphasis>
+             </entry>
+            <entry/>
+            <entry/>
+            <entry/>
+          </row>
+          <row>
+            <entry/>
+            <entry>1.0 µF</entry>
+            <entry>50 V</entry>
+            <entry>445-4576-1-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>2.2 µF</entry>
+            <entry>10 V</entry>
+            <entry>445-7712-1-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>4.7 µF</entry>
+            <entry>10 V</entry>
+            <entry>445-4056-1-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>10 µF</entry>
+            <entry>50 V</entry>
+            <entry>445-5999-1-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>22 µF</entry>
+            <entry>25 V</entry>
+            <entry>445-6000-1-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>47 µF</entry>
+            <entry>25 V</entry>
+            <entry>445-8047-1-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>100 µF</entry>
+            <entry>10 V</entry>
+            <entry>445-6007-1-ND</entry>
+          </row>
+        </tbody>
+      
+
+</tgroup><caption>Selected Capacitors with their Digi-Key part numbers.</caption>
+</table><para id="import-auto-id1170006218153">
+      <emphasis effect="bold">Inductors</emphasis>
+    </para>
+    <para id="import-auto-id1170006206708">Inductors are probably the least used of the passive components – or at least it seems that way.  The reasoning for their somewhat rare use is the difficulty in integrating an inductor onto a silicon substrate.  With the advent of digital filters, you can easily do most of the signal filtering in the digital domain.  But that is far too narrow of a view of how inductors are used.</para>
+    <para id="import-auto-id1170006206710">I won’t discuss any theory in this section, as there are many references you can use to learn about inductors [1].</para>
+    <para id="import-auto-id1170006236685">Table 4 is a quick reference guide to pick the best inductor for your design.</para><table id="import-auto-id1169994694542" summary="Selected Inductors with their Digi-Key part numbers.">
+<tgroup cols="3"><colspec colnum="1" colname="c1"/>
+        <colspec colnum="2" colname="c2"/>
+        <colspec colnum="3" colname="c3"/>
+        <thead>
+          <row>
+            <entry>
+                <emphasis effect="bold">Size</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Current</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Digi-Key part No.</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>220 nF</entry>
+            <entry>1.15 A</entry>
+            <entry>M10148-ND</entry>
+          </row>
+          <row>
+            <entry>1 µF</entry>
+            <entry>815 mA</entry>
+            <entry>M10137-ND</entry>
+          </row>
+          <row>
+            <entry>1.8 µF</entry>
+            <entry>655 mA</entry>
+            <entry>78F1R8K-RC-ND</entry>
+          </row>
+          <row>
+            <entry>2.2 µF</entry>
+            <entry>630 mA</entry>
+            <entry>M10140-ND</entry>
+          </row>
+          <row>
+            <entry>4.7 µF</entry>
+            <entry>1.28 A</entry>
+            <entry>M8277-ND</entry>
+          </row>
+          <row>
+            <entry>10 µF</entry>
+            <entry>180 mA</entry>
+            <entry>M8181-ND</entry>
+          </row>
+          <row>
+            <entry>15 µF</entry>
+            <entry>205 mA</entry>
+            <entry>M8183-ND</entry>
+          </row>
+          <row>
+            <entry>22 µF</entry>
+            <entry>190 mA</entry>
+            <entry>M10101-ND</entry>
+          </row>
+          <row>
+            <entry>33 µF</entry>
+            <entry>240 mA</entry>
+            <entry>M10111-ND</entry>
+          </row>
+          <row>
+            <entry>47 µF</entry>
+            <entry>195 mA</entry>
+            <entry>M10119-ND</entry>
+          </row>
+          <row>
+            <entry>100 µF</entry>
+            <entry>160 mA</entry>
+            <entry>M10082-ND</entry>
+          </row>
+          <row>
+            <entry>150 µF</entry>
+            <entry>140 mA</entry>
+            <entry>M10093-ND</entry>
+          </row>
+          <row>
+            <entry>220 µF</entry>
+            <entry>125 mA</entry>
+            <entry>M10102-ND</entry>
+          </row>
+          <row>
+            <entry>470 µF</entry>
+            <entry>92 mA</entry>
+            <entry>M10120-ND</entry>
+          </row>
+          <row>
+            <entry>1 mH</entry>
+            <entry>70 mA</entry>
+            <entry>M10083-ND</entry>
+          </row>
+          <row>
+            <entry>2.2 mH</entry>
+            <entry>50 mA</entry>
+            <entry>M10103-ND</entry>
+          </row>
+          <row>
+            <entry>4.7 mH</entry>
+            <entry>31 mA</entry>
+            <entry>M10121-ND</entry>
+          </row>
+          <row>
+            <entry>10 mH</entry>
+            <entry>24 mA</entry>
+            <entry>M10084-ND</entry>
+          </row>
+          <row>
+            <entry>47 mH</entry>
+            <entry>13 mA</entry>
+            <entry>M10122-ND</entry>
+          </row>
+          <row>
+            <entry>100 mH</entry>
+            <entry>65 mA</entry>
+            <entry>M8337-ND</entry>
+          </row>
+        </tbody>
+      
+
+</tgroup><caption>Selected Inductors with their Digi-Key part numbers.</caption>
+</table><para id="import-auto-id1169992013567">A diode is a two-terminal electronic component with an asymmetric transfer characteristic, with low (ideally zero) resistance to current flow in one direction and high (ideally infinite) resistance in the other. A semiconductor diode (the most common type today) is a crystalline piece of semiconductor material with a p-n junction connected to two electrical terminals [2].</para>
+    <para id="import-auto-id1170004133860">Diodes have many uses in a circuit design, but let’s focus on the most likely ones you’ll be faced with in your senior project design.  Those uses are:</para>
+    <list id="import-auto-id1170001240401" list-type="bulleted">
+      <item>Power supplies.</item>
+      <item>Signals.</item>
+      <item>LED lighting.</item>
+    </list>
+    <para id="import-auto-id1170004139259">But before getting to its uses, I’ll first give you a bit of background on the diode.</para>
+    <para id="import-auto-id1169997629737">
+      <emphasis effect="bold">Background</emphasis>
+    </para>
+    <para id="import-auto-id1169990354865">As you should remember, the basic concept of a diode is to allow current to flow in only one direction.  This is correct until enough voltage applied to the diode in the reverse direction exceeds the reversed breakdown voltage (Vbr).  It is important when choosing a diode to make sure that its Vbr is significantly larger than the signal voltage it will be seeing.</para>
+    <para id="import-auto-id1169990553732">But there are cases where you can use the Vbr to your advantage.  Zener diodes use this voltage to regulate an output voltage in a simple power-supply circuit.  The Zener diode is used to create a reference voltage for the power-supply output.  The Zener diode will be discussed a bit further later in this section.</para>
+    <para id="import-auto-id1169991697523">As you can see in Figure 4, there is a forward voltage drop (Vd) of about 0.7 V.  This is important to keep in mind, particularly if the signal being acted on is about the same as (or less than) the Vd.</para><para id="import-auto-id1169997877963">Finally, when using diodes in a high-frequency circuit, such as blocking a high-frequency signal or rectifying an AC voltage, make sure that you pay attention to the reverse recovery time of the diode.  This is a result of the amount of time before the diode can block current flow in the reverse direction. If ignored, you may realize that a diode looks just like a piece of bus wire at high frequencies, or that the efficiency of your power supply is significantly lower than your simulation predicts.</para>
+    <figure id="import-auto-id1170004125939"><media id="import-auto-id1169981712214" alt="">
+        <image mime-type="image/png" src="../../media/Picture 1.png" height="229" width="382"/>
+      </media>
+    <caption>Diode's voltage and current curve.</caption></figure><para id="import-auto-id1169993623054">With that brief background, let’s discuss the various uses of a diode.</para>
+    <para id="import-auto-id1169992246638">
+      <emphasis effect="bold">Power supplies</emphasis>
+    </para>
+    <para id="import-auto-id1169991960340">Power supplies use diodes in several different ways.  The first way is to rectify an AC voltage, resulting in a DC voltage.  A typical circuit will have four diodes in the form of a bridge, allowing both halves of the sine wave to be converted to a pulse-shaped DC voltage.  A large capacitor is put across the output signal to smooth the pulses into a constant DC voltage.  Some sort of voltage regulator circuit is included to help maintain the correct DC voltage.</para>
+    <para id="import-auto-id1169984097857">The diodes used in this way are power diodes, and the capacitor is usually an electrolytic or tantalum capacitor in the range of 10 to 200 µF (maybe more or less, depending on the variability and size of the load).</para>
+    <para id="import-auto-id2683099">A second use of a diode in a power supply is to create a voltage reference.  The type of diode used for this is a Zener diode.  In its simplest form, the Zener diode controls the output voltage of a series pass transistor.  Zener diodes generally run from about 2 V to about 200 V.  </para>
+    <para id="import-auto-id1169991833735">Remember that if you need a voltage reference below 2 V, using one or two signal diodes in series can be used for 0.7 V and 1.4 V, respectively.  It is important on a Zener to stay within the power dissipation specification.  The power can be estimated by multiplying the Zener voltage by the current load on the diode.</para>
+    <para id="import-auto-id1170004711621">It is good to revisit the concept of reverse recovery time.  When the AC voltage source is 50/60 Hz, a power diode generally works fine.  (I first designed with a 1N4001.)  But as this frequency goes up in a DC-to-DC converter, the reverse recovery time of the diodes in the rectifier bridge becomes a significant component in determining power efficiency.  Depending on the power requirements of the overall circuit, a signal diode may be a better choice for the bridge.</para>
+    <para id="import-auto-id1169990203184">
+      <emphasis effect="bold">Signals</emphasis>
+    </para>
+    <para id="import-auto-id1169991969615">Diodes can be used to alter the shape of a signal.  They can clip a signal such that only the positive (or negative) part of the signal passes.  This could be valuable when trying to capture a pulse riding on a large DC component.</para>
+    <para id="import-auto-id1169991966316">
+      <emphasis effect="bold">Lighting</emphasis>
+    </para>
+    <para id="import-auto-id1169997876340">The term lighting is probably an understatement of what a diode can do in terms of creating light or capturing light.  Light-emitting diodes (LEDs) have been used for years as indicator lights or display elements.  They come in various colors and brightness.  A whole new industry is happening using LEDs to replace conventional lights in our consumer and commercial applications.</para>
+    <para id="import-auto-id1169990050619">
+      <emphasis effect="bold">Picking a diode for your design</emphasis>
+    </para>
+    <para id="import-auto-id1169995878927">Table 5 is a simple chart to give you a start on picking a diode for your design.  It is separated into uses, with a couple of specifications that you need to consider.  Included are a few of the key parameters for the devices.</para><table id="import-auto-id1169988302149" summary="Selected diodes with their Digi-Key part numbers.">
+<tgroup cols="7"><colspec colnum="1" colname="c1"/>
+        <colspec colnum="2" colname="c2"/>
+        <colspec colnum="3" colname="c3"/>
+        <colspec colnum="4" colname="c4"/>
+        <colspec colnum="5" colname="c5"/>
+        <colspec colnum="6" colname="c6"/>
+        <colspec colnum="7" colname="c7"/>
+        <thead>
+          <row>
+            <entry>
+                <emphasis effect="bold">Use</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Part no.</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Fwd V </emphasis><emphasis effect="bold">(Vf)</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Rev V (Vr)</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Rev</emphasis> <emphasis effect="bold">(trr)</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Current</emphasis> <emphasis effect="bold">(lo)</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Digi-Key part No.</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>Pwr</entry>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4001</entry>
+            <entry>1.1 V@1 A</entry>
+            <entry>50 V</entry>
+            <entry>500 nS</entry>
+            <entry>1 A</entry>
+            <entry>1N4001GOS-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4002</entry>
+            <entry>1.1 V@1 A</entry>
+            <entry>100 V</entry>
+            <entry>500 nS</entry>
+            <entry>1 A</entry>
+            <entry>1N4002GOS-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4003</entry>
+            <entry>1.1 V@1 A</entry>
+            <entry>200 V</entry>
+            <entry>500 nS</entry>
+            <entry>1 A</entry>
+            <entry>1N4003GOS-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4004</entry>
+            <entry>1.1 V@1 A</entry>
+            <entry>400 V</entry>
+            <entry>500 nS</entry>
+            <entry>1 A</entry>
+            <entry>1N4004GOS-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4005</entry>
+            <entry>1.1 V@1 A</entry>
+            <entry>600 V</entry>
+            <entry>500 nS</entry>
+            <entry>1 A</entry>
+            <entry>1N4005GOS-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4006</entry>
+            <entry>1.1 V@1 A</entry>
+            <entry>800 V</entry>
+            <entry>500 nS</entry>
+            <entry>1 A</entry>
+            <entry>1N4006GOS-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4007</entry>
+            <entry>1.1 V@1 A</entry>
+            <entry>1,000 V</entry>
+            <entry>500 nS</entry>
+            <entry>1 A </entry>
+            <entry>1N4007GOS-ND</entry>
+          </row>
+          <row>
+            <entry>Small sgnl</entry>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N914</entry>
+            <entry>1.0 V@10 mA</entry>
+            <entry>75 V</entry>
+            <entry>4 nS</entry>
+            <entry>200 mA</entry>
+            <entry>1N914BCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N916</entry>
+            <entry>1.0 V@20 mA</entry>
+            <entry>100 V</entry>
+            <entry>4 nS</entry>
+            <entry>200 mA</entry>
+            <entry>1N916AFS-ND</entry>
+          </row>
+          <row>
+            <entry>Zener</entry>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+          </row>
+          <row>
+            <entry/>
+            <entry>
+               <emphasis effect="bold">Part no.</emphasis>
+            </entry>
+            <entry>
+               <emphasis effect="bold">Volt (Vz)</emphasis>
+            </entry>
+            <entry>
+               <emphasis effect="bold">Pwr (max)</emphasis>
+            </entry>
+            <entry/>
+            <entry/>
+            <entry>
+               <emphasis effect="bold">Digi-Key part No.</emphasis>
+            </entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4747</entry>
+            <entry>20 V</entry>
+            <entry>1 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N4747AFSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4748</entry>
+            <entry>22 V</entry>
+            <entry>1 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N4748AFSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4746</entry>
+            <entry>18 V</entry>
+            <entry>1 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N4746AFSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4749</entry>
+            <entry>24 V</entry>
+            <entry>1 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N4749AFSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4752</entry>
+            <entry>33 V</entry>
+            <entry>1 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N4752AFSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N4750</entry>
+            <entry>27 V</entry>
+            <entry>1 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N4750AFSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N5349</entry>
+            <entry>12 V</entry>
+            <entry>5 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N5349BRLGOSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N5337</entry>
+            <entry>4.7 V</entry>
+            <entry>5 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N5337BRLGOSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N5344</entry>
+            <entry>8.2 V</entry>
+            <entry>5 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N5344BRLGOSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N5352</entry>
+            <entry>15 V</entry>
+            <entry>5 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N5352BRLGOSCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>1N5333</entry>
+            <entry>3.3 V</entry>
+            <entry>5 W</entry>
+            <entry/>
+            <entry/>
+            <entry>1N5333BRLGOSCT-ND</entry>
+          </row>
+        </tbody>
+      
+
+
+
+
+
+</tgroup><caption>Selected diodes with their Digi-Key part numbers.</caption>
+</table><para id="import-auto-id4133152">
+      <emphasis effect="bold">Transistors</emphasis>
+    </para>
+    <para id="import-auto-id1169997389024">A transistor is a semiconductor device used to amplify and switch electronic signals and electrical power. It is made up of semiconductor material, with at least three terminals for connection to an external circuit.</para>
+    <para id="import-auto-id1169994544696">A voltage or current applied to one pair of the transistor's terminals changes the current flowing through another pair of terminals. Because the controlled (output) power can be higher than the controlling (input) power, a transistor can amplify a signal. Today, some transistors are packaged individually, but many more are found embedded in integrated circuits [3].</para>
+    <para id="import-auto-id1169974004952">Once again, I will leave theory out of this discussion, as you should already have learned it or can find many good sources with which to refresh your memory.  With that said, let’s discuss how to pick the best transistor for your design.</para>
+    <para id="import-auto-id1169996858866">
+      <emphasis effect="bold">Picking the right transistor</emphasis>
+    </para>
+    <para id="import-auto-id1169996542309">It is easy to get overwhelmed when picking the best transistor for your design.  Table 6 is a quick chart to match your need to a device.</para><table id="import-auto-id1170006236689" summary="Selected transistors with their Digi-Key part numbers.">
+<tgroup cols="8"><colspec colnum="1" colname="c1"/>
+        <colspec colnum="2" colname="c2"/>
+        <colspec colnum="3" colname="c3"/>
+        <colspec colnum="4" colname="c4"/>
+        <colspec colnum="5" colname="c5"/>
+        <colspec colnum="6" colname="c6"/>
+        <colspec colnum="7" colname="c7"/>
+        <colspec colnum="8" colname="c8"/>
+        <thead>
+          <row>
+            <entry>
+                <emphasis effect="bold">Use</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Part No.</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Type</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">hFE</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Ic</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Ft</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Pwr (max)</emphasis>
+            </entry>
+            <entry>
+                <emphasis effect="bold">Digi-Key part No.</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>General purpose</entry>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+            <entry/>
+          </row>
+          <row>
+            <entry/>
+            <entry>2N2222</entry>
+            <entry>NPN</entry>
+            <entry>100</entry>
+            <entry>600mA</entry>
+            <entry>300MHz</entry>
+            <entry>625mW</entry>
+            <entry>P2N2222AGOS-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>2SC4083T106N</entry>
+            <entry>NPN</entry>
+            <entry>56</entry>
+            <entry>50m A</entry>
+            <entry>3.2GHz</entry>
+            <entry>200mW</entry>
+            <entry>2SC4083T106NCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>2SC4083T106P</entry>
+            <entry>NPN</entry>
+            <entry>82</entry>
+            <entry>50m A</entry>
+            <entry>3.2GHz</entry>
+            <entry>200mW</entry>
+            <entry>2SC4083T106PCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>2N3904</entry>
+            <entry>NPN</entry>
+            <entry>100</entry>
+            <entry>200mA</entry>
+            <entry>300MHz</entry>
+            <entry>625mW</entry>
+            <entry>2N3904TFCT-ND</entry>
+          </row>
+          <row>
+            <entry/>
+            <entry>2N3906</entry>
+            <entry>PNP</entry>
+            <entry>100</entry>
+            <entry>200mA</entry>
+            <entry>250MHz</entry>
+            <entry>625mW</entry>
+            <entry>2N3906D26ZCT-ND</entry>
+          </row>
+        </tbody>
+      
+
+
+</tgroup><caption>Selected transistors with their Digi-Key part numbers.</caption>
+</table><para id="import-auto-id1169989820908">
+      <emphasis effect="bold">References</emphasis>
+    </para>
+    <list id="import-auto-id1169982492020" list-type="enumerated" number-style="arabic">
+      <item>http://en.wikipedia.org/wiki/Inductor</item>
+      <item>http://en.wikipedia.org/wiki/Diode</item>
+      <item>http://en.wikipedia.org/wiki/Transistor</item>
+    </list>
+  </content>
+</document>

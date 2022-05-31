@@ -1,0 +1,38 @@
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en">
+  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
+    <md:content-id>col11449</md:content-id>
+    <md:title>Senior Project Guide to Texas Instruments Components</md:title>
+    <md:language>en</md:language>
+    <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</md:license>
+    <md:uuid>f4e48bcd-1325-4ff0-bdb8-d5135fd0fb35</md:uuid>
+<md:slug>senior-project-guide-to-texas-instruments-components</md:slug>
+</metadata>
+  <col:content>
+    <col:module document="m44269"/>
+    <col:subcollection>
+      <md:title>Analog</md:title>
+      <col:content>
+        <col:module document="m44384"/>
+        <col:module document="m44275"/>
+        <col:module document="m44273"/>
+        <col:module document="m44326"/>
+        <col:module document="m44383"/>
+        <col:module document="m44682"/>
+        <col:module document="m44375"/>
+        <col:module document="m44381"/>
+        <col:module document="m44277"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Embedded Processors</md:title>
+      <col:content>
+        <col:module document="m44900"/>
+        <col:module document="m44319"/>
+        <col:module document="m44327"/>
+        <col:module document="m44902"/>
+      </col:content>
+    </col:subcollection>
+    <col:module document="m45771"/>
+    <col:module document="m44272"/>
+  </col:content>
+</col:collection>

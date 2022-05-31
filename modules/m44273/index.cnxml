@@ -1,0 +1,140 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Data Converters</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44273</md:content-id>
+  <md:title>Data Converters</md:title>
+  <md:abstract>This module is a brief overview of how ADCs and DACs function, how to read an ADC or DAC data sheet, and how to pick the right one for some sample applications.
+This module is one of many in a textbook designed for seniors considering the use of TI products in their senior project.</md:abstract>
+  <md:uuid>4d92e111-1b6f-444b-b66d-250c37466500</md:uuid>
+</metadata>
+
+<content>
+    <para id="import-auto-id1171899930020"><emphasis effect="bold">Technical overview</emphasis>
+    </para><para id="import-auto-id1171887346749">A data converter is the bridge between the real, physical world of analog signals like voltage or current, and the digital world of numbers represented by ones and zeros. An analog-to-digital converter (ADC) converts a voltage into a number; a digital-to-analog converter (DAC) converts a number into a voltage or current. An ADC might be used to measure a weight or the intensity of light, or allow an audio signal to be captured and stored as a digital file for playback in a media player. Converting that digital file back into sound would require a DAC; a DAC can also control a valve that affects the flow of chemicals into a chemical reaction, or the position of a cutting head on a system that makes mechanical parts.</para><para id="import-auto-id1171879775155"><emphasis effect="bold">ADCs</emphasis>
+    </para><para id="import-auto-id1171908781648">Figure 1 is a general representation of an ADC. An analog-to-digital converter can be represented by the three functional blocks shown here, regardless of architecture.</para><figure id="import-auto-id1171887348095"><media id="import-auto-id1171892633604" alt="">
+		<image mime-type="image/png" src="../../media/graphics1-6a07.png" height="168" width="624"/>
+	</media>
+</figure><para id="import-auto-id1171874119328">Every ADC consists of three functional blocks: a sampler, a quantizer and an encoder. In some architectures, some of the functions may actually be combined, but each function is there nonetheless.</para><para id="import-auto-id1171875580996">The <emphasis effect="bold">sampler</emphasis> is responsible for sampling the input signal at a certain time; it is implied that this function also “holds” the signal constant for the converter to operate on it during its conversion time.</para><para id="import-auto-id1171891817637">The <emphasis effect="bold">quantizer</emphasis> is responsible for measuring the input signal and determining an output code level that most closely represents the voltage of the analog input. It approximates the sampled voltage with a level from a fixed set of 2<sup>N</sup> possible voltage levels (where N is the number of bits of resolution), either via rounding or truncation.</para><para id="import-auto-id1171900241403">The measurement of the input signal and creation of its corresponding output code are accomplished by comparing the input signal to a fixed <emphasis effect="bold">reference</emphasis> voltage. The full-scale range (the maximum voltage that the converter can have on its input) is directly related to the reference voltage value. The minimum change in input voltage that the converter can detect is called the least significant bit (LSB) value. For example, if the full-scale range is the same as the 5-V reference voltage V<sub>REF</sub>, and the converter has 12 bits of resolution, the LSB would be given by Equation 1:</para><para id="import-auto-id1171908670197">LSB = V<sub>REF</sub>/2<sup>N</sup> = 5 V/2<sup>12</sup> = 5 V/4096 = 1.22 mV (1)</para><para id="import-auto-id1171887343204">You can generally achieve the best conversion accuracy by matching the input signal range closely to the converter's full-scale range, either through amplification before the ADC or by changing the reference voltage to adjust the full-scale range.</para>
+    <para id="import-auto-id1171885850147">The <emphasis effect="bold">encoder</emphasis> can turn the internal code used by the quantizer into a more usable code for a system (for example, turning a thermometer code into a twos complement code) or can simply format the code into a serial data stream for easy communication to a host processor.</para><para id="import-auto-id1171874076002">Figure 2 is an example of how an ADC is connected in a basic data-acquisition system (based on the ADS8326). The reference voltage is supplied by the REF3240; both reference and signal inputs are buffered by op amps. The ADC is supplied power, a reference voltage and the input signal voltage by analog circuitry; the digital interface to a host microcontroller or DSP is often a simple serial interface. High-speed applications may require more involved signal drive circuitry; the data sheet for most ADCs usually shows the recommended circuitry needed around the ADC.</para><figure id="import-auto-id1171909223054"><media id="import-auto-id1171875477315" alt="">
+		<image mime-type="image/png" src="../../media/graphics2-622d.png" height="314" width="625"/>
+	</media>
+</figure><para id="import-auto-id1171890269446"><emphasis effect="bold">DACs</emphasis>
+    </para><para id="import-auto-id1171887348552">A digital-to-analog converter block diagram would be similar to Figure 1, viewed from right to left: the DAC accepts a digital input, which is then decoded into a form that the DAC circuitry can use. The quantizer then creates a voltage or current corresponding to the digital input value. The sampler is not always on the analog side because most DACs have a means to latch the digital value provided by the interface. </para><para id="import-auto-id1171881291825">While ADCs generally accept only voltage inputs, the output of a DAC may be a voltage or a current. Figure 3 shows an example of a multiplying architecture, which usually has a current output, using an external op amp to convert the current to a voltage. Many DACs provide this conversion circuitry in the device itself. Like the ADC, the DAC requires a reference input and may require analog circuitry on its output. The digital interface is not shown. This DAC8811 provides the current output, which is converted to a voltage through the output op amp and an internal feedback resistor.</para><para id="import-auto-id1171870917117"><figure id="import-auto-id1171869384864"><media id="import-auto-id1171876119123" alt=""><image mime-type="image/png" src="../../media/graphics3-e725.png" height="241" width="477"/></media></figure></para><para id="import-auto-id1171901714196">
+      <emphasis effect="bold">How to read a data converter data sheet</emphasis>
+    </para>
+    <para id="import-auto-id1171876007161">As with any electronic component, the data converter data sheet is an essential resource. When deciding on a converter to use for a design, much of what you need to know is usually prominently displayed on the first page of the data sheet. The most important parameters for a data converter are <emphasis effect="bold">speed</emphasis>, <emphasis effect="bold">resolution</emphasis> and <emphasis effect="bold">accuracy</emphasis>.</para><para id="import-auto-id1171908556823">
+      <emphasis effect="bold">Speed</emphasis>
+    </para>
+    <para id="import-auto-id1171892695663">For an ADC, speed refers to the time it takes to convert an analog input into a digital value – the actual specifications are acquisition time and conversion time, which when combined limit how fast the ADC can output a conversion result. This can also be expressed as throughput, which is usually shown as the maximum sampling frequency.</para><para id="import-auto-id1171900605605">For a DAC, the limiting factor on speed is usually the settling time, which is the time it takes for the output to settle to a new value from a previous value within a specified error band. A 1-µs settling time implies that the converter may be suitable for updating its output at a rate up to 1 MHz.</para><para id="import-auto-id1171892633974">
+      <emphasis effect="bold">Resolution</emphasis>
+    </para>
+    <para id="import-auto-id1171882826908">As described previously and with the example shown in Equation 1, resolution refers to the either the number of bits (N) that the converter has as its input or output, the number of counts or codes (which is simply 2<sup>N</sup>), or the value of the least-significant bit in volts or amps. Higher resolution means that the converter can discriminate between smaller changes on the input signal or provide more precise control over an output signal. </para><para id="import-auto-id1171879891603">
+      <emphasis effect="bold">Accuracy</emphasis>
+    </para>
+    <para id="import-auto-id1171886134385">Many people confuse resolution with accuracy. Just because you have a converter with 16 bits of resolution doesn’t mean you always have 16 bits (or 15 ppm) of accuracy. Recall that a data converter requires a reference, and accuracy is the degree to which the result conforms to the correct value measured against a standard or reference. If you put exactly 1 V into an ADC and could resolve exactly that value with 16 bits, but the ADC tells you that it’s 1.2 V, that’s only 20 percent accuracy – a far cry from 15 ppm.</para><para id="import-auto-id1171891577533">At a system level, the accuracy of the reference voltage will be one of the primary factors in the overall accuracy of the system. But the data converter itself contributes some errors. Some data converters will express an overall accuracy specification – often called total unadjusted error – but it is more common to see specifications for offset error, gain error and linearity.</para><para id="import-auto-id1171900003292">The ideal transfer function for a data converter is shown in Figure 4, as a blue line. It appears as a staircase because the quantizer can only represent a range of voltages with a single code. The location of the transition point from one code to another is key to describing the converter's accuracy. </para><figure id="import-auto-id1171901751687"><media id="import-auto-id1171880013916" alt="">
+		<image mime-type="image/png" src="../../media/graphics4-1651.png" height="291" width="353"/>
+	</media>
+</figure><para id="import-auto-id1171874035568">Offset error is the difference between the actual transition point and the ideal transition point – resulting in a translation of the transfer function left or right. Although this error is measured around a near-zero voltage input or output, the error continues throughout the entire transfer function from zero to a full-scale (FS) voltage. Consequently, the offset error near zero is the same as the offset error with a near FS voltage.</para><para id="import-auto-id1171877005428"><figure id="import-auto-id1171876113112"><media id="import-auto-id1171890419368" alt=""><image mime-type="image/png" src="../../media/graphics5-5591.png" height="276" width="402"/></media></figure></para><para id="import-auto-id1171909220766">Gain error is the difference between the actual last transition point and the ideal last transition point – resulting in a rotation of the transfer function. It is the difference between the ideal slope of the transfer function and the actual slope between the measured zero point to FS, minus the converter’s offset error. This is actually measured by looking at where the last transition point at full scale occurs, as shown in Figure 5.</para><para id="import-auto-id1171892630437">As you might imagine from the use of the term “error,” smaller gain and offset errors imply a more accurate converter. Gain and offset errors can often be corrected for in the digital domain, using the system microcontroller or DSP.</para><para id="import-auto-id1171882407482"><emphasis effect="bold">Linearity errors</emphasis>, on the other hand, are much more difficult to correct. While the transfer functions in Figure 4 and Figure 5 show steps that are exactly the same size, in actual converters the width of these steps will vary. Figure 6 shows how differential nonlinearity (DNL) is measured. DNL is the deviation in code width from the ideal 1LSB code width.</para><para id="import-auto-id1171870292172"><figure id="import-auto-id1171877006515"><media id="import-auto-id1171893901034" alt="">
+			<image mime-type="image/png" src="../../media/graphics6-2b85.png" height="244" width="285"/>
+		</media>
+		</figure></para><para id="import-auto-id1171875666277">A DNL error less than –1 LSB can cause an entire code to “disappear,” resulting in what is called a <emphasis effect="bold">missing code</emphasis>. The smaller the range of the DNL specification, the better.</para><para id="import-auto-id1171876961355"><figure id="import-auto-id1171899263776"><media id="import-auto-id1171887345168" alt=""><image mime-type="image/png" src="../../media/graphics7-a98f.png" height="243" width="281"/></media></figure></para><para id="import-auto-id1171870423280"><emphasis effect="bold">Integral nonlinearity</emphasis> (Figure 7) is the cumulative effect of all of the differential nonlinearity errors, and is the maximum deviation between the actual code transition points and the corresponding ideal transition points after gain and offset error have been removed. The smaller the INL specification, the more accurate the data converter will be.</para><para id="import-auto-id1171879836597">Speed, resolution and accuracy are important considerations in selecting a data converter, and you will often find what you need to know about these on the front page of the converter data sheet. But other important factors, such as the details of the digital interface and mechanical drawings of the package, are further inside the data sheet. You need to read the entire data sheet to effectively use a data converter.</para><para id="import-auto-id1171877044796"><emphasis effect="bold">Choosing the right data converter</emphasis>
+    </para><para id="import-auto-id1171893830695">A multitude of data converters are available for your design. While the three main specifications of speed, resolution and accuracy will help in the final selection process, narrowing down the options to choose from is the first step. </para><para id="import-auto-id1171887354138">When selecting an ADC for a particular application, a good first selection criteria is to look at the topology of the ADC. Figure 8 is a simple comparison of ADC architectures that can help you find the right place to start when selecting a converter for your application. Delta-sigma converters are most suitable for higher-resolution tasks, while successive-approximation-register and pipeline architectures are the ones to look to for higher-speed applications.</para><para id="import-auto-id1171882661194"><figure id="import-auto-id1171906793539"><media id="import-auto-id1171887344965" alt=""><image mime-type="image/png" src="../../media/graphics8-0957.png" height="345" width="545"/></media></figure></para><para id="import-auto-id1171887020642">Digital-to-analog converters have similar trade-offs in architecture: delta-sigma DACs tend to be slower, while R-2R, string and multiplying DACs all provide good general-purpose performance. High-frequency, fast-settling DACs are generally for current-steering architectures.</para><para id="import-auto-id1171869335601">Knowing the speed and resolution requirements of your application, you can anticipate which architecture of converter will most likely suit your needs. Then you can look more closely for the converter that matches the accuracy requirements and other features that the application demands.</para><para id="import-auto-id1171900020821">Table 1 lists some applications where data converters are used, as well as the selection criteria and some examples of actual converter products suitable for those applications.</para><table id="import-auto-id1171892849449" summary="Data converter options for some example applications.">
+<tgroup cols="6"><colspec colnum="1" colname="c1"/>
+	<colspec colnum="2" colname="c2"/>
+	<colspec colnum="3" colname="c3"/>
+	<colspec colnum="4" colname="c4"/>
+	<colspec colnum="5" colname="c5"/>
+	<colspec colnum="6" colname="c6"/>
+	<thead>
+		<row>
+			<entry>
+				<emphasis effect="bold">Application</emphasis>
+			</entry>
+			<entry>
+				<emphasis effect="bold">Required sample rate</emphasis>
+			</entry>
+			<entry>
+				<emphasis effect="bold">Required resolution</emphasis>
+			</entry>
+			<entry>
+				<emphasis effect="bold">Architecture</emphasis>
+			</entry>
+			<entry>
+				<emphasis effect="bold">Example part</emphasis>
+			</entry>
+			<entry>
+				<emphasis effect="bold">Comments</emphasis>
+			</entry>
+		</row>
+	</thead>
+	<tbody>
+		<row>
+			<entry>Weigh scale</entry>
+			<entry>&lt; 100 sps</entry>
+			<entry>18-24 bits</entry>
+			<entry>Delta-sigma</entry>
+			<entry>ADS1211, ADS1258</entry>
+			<entry>High accuracy</entry>
+		</row>
+		<row>
+			<entry>Temperature measurement</entry>
+			<entry>&lt; 10 sps</entry>
+			<entry>8-18 bits</entry>
+			<entry>Delta-sigma</entry>
+			<entry>ADS1146</entry>
+			<entry>High accuracy</entry>
+		</row>
+		<row>
+			<entry>Waveform analysis/synthesis</entry>
+			<entry>&lt; 100 Msps</entry>
+			<entry>8-16 bits</entry>
+			<entry>Pipeline</entry>
+			<entry>ADS6445, DAC2902</entry>
+			<entry>High speed and good linearity (low distortion) required</entry>
+		</row>
+		<row>
+			<entry>Test and measurement</entry>
+			<entry>&lt; 1 Msps</entry>
+			<entry>12-24 bits</entry>
+			<entry>SAR ADC, multiplying DAC</entry>
+			<entry>ADS7824, ADS8326, DAC8820</entry>
+			<entry>High accuracy and throughput, multiple channels</entry>
+		</row>
+		<row>
+			<entry>Ultrasonic imager</entry>
+			<entry>&lt;100 Msps</entry>
+			<entry>12-14 bits</entry>
+			<entry>Pipeline</entry>
+			<entry>ADS6445</entry>
+			<entry>High speed, good resolution</entry>
+		</row>
+		<row>
+			<entry>Software-defined radio</entry>
+			<entry>&lt;500 Msps</entry>
+			<entry>12-14 bits</entry>
+			<entry>Pipeline</entry>
+			<entry>ADS5474, ADS41B49</entry>
+			<entry>High speed, good resolution</entry>
+		</row>
+		<row>
+			<entry>Motor control and positioning</entry>
+			<entry>&lt;500 ksps</entry>
+			<entry>12-18 bits</entry>
+			<entry>SAR ADC, multiplying DAC</entry>
+			<entry>ADS8361, DAC8811</entry>
+			<entry>High accuracy and throughput, multiple channels</entry>
+		</row>
+	</tbody>
+
+
+
+
+
+
+
+
+
+
+</tgroup>
+</table></content>
+</document>

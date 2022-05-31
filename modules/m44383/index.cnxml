@@ -1,0 +1,302 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Wireless Communications background</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44383</md:content-id>
+  <md:title>Wireless Communications background</md:title>
+  <md:abstract>This module looks at the basic concepts of wireless communications. It is one of many modules in a textbook created for college seniors to help them select the best components for their senior project.</md:abstract>
+  <md:uuid>dafa98ff-d3c9-48b0-bdb5-bba473fcca05</md:uuid>
+</metadata>
+
+<content>
+    <para id="import-auto-id7370412"><emphasis effect="bold">Basics of digital communications</emphasis></para><para id="import-auto-id1165661846369">Communication theory aims to explore and develop methods that suppress (as far as possible) the effect of noise and to simultaneously transmit as many discrete signals as possible through a channel. Spectral analysis is a tool that connects time-domain signals to the frequency domain, allowing insight into the characteristics of broadband and narrowband signals in a communication bandwidth.</para><para id="import-auto-id1885571"><emphasis effect="bold">Spectral analysis</emphasis>
+    </para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1881102">Frequency has a ubiquitous role in the process of communication. It is used as a carrier and bandwidths are specified in terms of it. It is therefore important to have tools with which you can easily determine the frequency content in a signal. This can be achieved using the Fourier transform (FT) and its discrete counterpart, the DFT. The FT of a signal <m:math>
+<m:mrow><m:mi>w(t)</m:mi></m:mrow>
+</m:math> is defined in Equation 1 as:</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-395"><m:math><m:mrow><m:mi>W(f) </m:mi></m:mrow><m:mrow><m:mo>=</m:mo></m:mrow><m:mrow><m:msup><m:msub><m:mi>∫</m:mi><m:mn>-∞</m:mn><m:mn>∞</m:mn></m:msub></m:msup></m:mrow><m:mrow><m:mi>w(t)exp(-j2πft)dt</m:mi></m:mrow>
+	</m:math>               
+</para><para id="import-auto-id1165665096488">Its inverse is calculated with Equation 2:</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-781"><m:math><m:mrow><m:mi>w(t) </m:mi></m:mrow><m:mrow><m:mo>=</m:mo></m:mrow><m:mrow><m:msup><m:msub><m:mi>∫</m:mi><m:mn>-∞</m:mn><m:mn>∞</m:mn></m:msub></m:msup></m:mrow><m:mrow><m:mi>W(f)exp(j2πft)df</m:mi></m:mrow>
+	</m:math>               
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id7136345">The above equations show that <emphasis effect="bold"><emphasis effect="italics"><m:math>
+				<m:mrow><m:mi>w(t)</m:mi></m:mrow>
+			</m:math></emphasis></emphasis> is a weighted sum of sinusoids in the interval <emphasis effect="bold"><emphasis effect="italics"><m:math>
+				<m:mrow><m:mi>-∞ to +∞</m:mi></m:mrow>
+			</m:math></emphasis></emphasis>.  The weights are complex numbers <emphasis effect="bold"><emphasis effect="italics"><m:math>
+				<m:mrow><m:mi>W(f)</m:mi></m:mrow>
+			</m:math></emphasis></emphasis>. If at any particular frequency the magnitude spectrum is strictly positive, then that frequency is said to be present in <emphasis effect="bold"><emphasis effect="italics"><m:math>
+				<m:mrow><m:mi> w(t)</m:mi></m:mrow>
+			</m:math></emphasis></emphasis>.<emphasis effect="bold"><emphasis effect="italics"/></emphasis> The set of all frequencies present in a signal is its frequency content. If this content consists of frequencies in a certain range, then <emphasis effect="bold"><emphasis effect="italics"><m:math>
+				<m:mrow><m:mi>w(t)</m:mi></m:mrow>
+			</m:math></emphasis></emphasis> is said to be bandlimited with a certain bandwidth.
+
+</para><para id="import-auto-id8819311"><emphasis effect="bold">Digital modulation</emphasis></para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1165657318708">It is the process of converting digital symbols into waveforms that are compatible with the characteristics of the transmission medium. In the case of baseband modulation, these waveforms take the shape of pulses designed to reduce intersymbol interference (ISI). In the case of bandpass modulation, these shaped pulses modulate a sinusoidal carrier wave that is converted to an electromagnetic (EM) field for propagation over distances. In free space, antennas radiate and receive EM signals. Antennas operate effectively only when their dimensions are of the order of magnitude of quarter wavelength <emphasis effect="bold"><emphasis effect="italics"><m:math>
+		<m:mrow><m:mi>(</m:mi></m:mrow>
+		<m:mrow><m:mfrac><m:mi>Λ</m:mi><m:mi>4</m:mi></m:mfrac></m:mrow>
+		<m:mrow><m:mi>)</m:mi></m:mrow>
+	</m:math></emphasis></emphasis>  of the transmitted signal. If the signal frequency is very high, antenna dimension becomes practical; however, high frequencies get attenuated by the atmosphere and therefore cannot travel great distances.
+
+</para><para id="import-auto-id1165663774880"><emphasis effect="bold">Basic modulation techniques</emphasis>
+    </para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id7066916">Any message can be converted into binary digits called bits. For transmission, these bits are grouped together and encoded into sequences whose elements are the symbols of an alphabet set. To utilize bandwidth more efficiently, these alphabets are encoded in waveforms called pulses, which are then combined to form a baseband signal. For example, bitstream 01001001010010111010101 can be paired as 01 00 10 01 01 11 and so on. Then the pairs can be encoded as -1, -3, 1, -1, +3 and so on to produce the symbol sequence. There are many ways to map from bits to symbols. Bitstreams can be mapped to eight-level, 16-level, 256-level, etc. After the original message is grouped into alphabets, it must be turned into analog waveforms by choosing a pulse shape <emphasis effect="bold"><emphasis effect="italics"><m:math>
+				<m:mrow><m:mi>p(t)</m:mi></m:mrow>
+			</m:math></emphasis></emphasis>  and then transmitting <emphasis effect="bold"><emphasis effect="italics"><m:math>
+				<m:mrow><m:mi>–p(t - kT), -3p(t – kT), p(t – kT), -p(t – kT), 3p(t –kT)</m:mi></m:mrow>
+			</m:math></emphasis></emphasis>.  In general, this four-level signal takes the form shown in Equation 3:
+
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-531"><m:math><m:mrow><m:mi>d(t)</m:mi></m:mrow>
+		<m:mrow><m:mo>=</m:mo></m:mrow>
+		<m:mrow><m:msub><m:mo>∑</m:mo><m:mo>k</m:mo></m:msub></m:mrow>
+		<m:mrow><m:msub><m:mi>I</m:mi><m:mi>k</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mi>p(t - kT);</m:mi></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:msub><m:mi>I</m:mi><m:mi>k</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mo>Є{±1, ±3};</m:mo></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mi>  k = 1, 2, ...</m:mi></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mo> </m:mo></m:mrow>
+	</m:math>
+</para><para id="import-auto-id3771806">Where:
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-887"><m:math><m:mrow><m:mi>d(t)</m:mi></m:mrow></m:math> = an analog waveform consisting of pulses at symbol time <m:math><m:mrow><m:mi>kT</m:mi></m:mrow></m:math> and the amplitude of the pulse is proportional to the associated symbol value.</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-207">Ideally, the pulse should be chosen so that the value of message at <m:math><m:mrow><m:mi>k</m:mi></m:mrow></m:math> does not interfere with the message at any other time (no ISI) and makes efficient use of bandwidth.
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1165661385963">ISI can manifest itself in two ways: when the pulse shape <m:math><m:mrow><m:mi>p(t)</m:mi></m:mrow></m:math> is wider in time than a single symbol time interval <m:math><m:mrow><m:mi>T</m:mi></m:mrow></m:math>, and when the pulses experience channel distortions and multipath fading effects.
+
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1165664168742">Consider a two-level system in which <m:math><m:mrow><m:msub><m:mi>s</m:mi><m:mrow><m:mn>0</m:mn></m:mrow></m:msub></m:mrow>
+<m:mrow><m:mi>(t)</m:mi></m:mrow></m:math> and <m:math><m:mrow><m:msub><m:mi>s</m:mi><m:mrow><m:mn>1</m:mn></m:mrow></m:msub></m:mrow><m:mrow><m:mi>(t)</m:mi></m:mrow></m:math> are finite energy signals representing logical 0 and 1, respectively. These signals can be of any shape but must have finite energy in the signaling interval. Then you can construct a framework of representative basic modulation schemes. Some fundamental digital modulation schemes are below.
+
+
+</para><para id="import-auto-id1165661027788"><emphasis effect="bold">Amplitude shift keying</emphasis>
+    </para><para id="import-auto-id3722857">In amplitude shift keying (ASK), the information is conveyed by varying the amplitude of a carrier wave in accordance with the symbol stream. ASK can be expressed as Equation 4:</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-406"><m:math><m:mrow><m:msub><m:mi>s</m:mi><m:mi>k</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mo>(t)</m:mo></m:mrow>
+		<m:mrow><m:mo>=</m:mo></m:mrow>
+		<m:mrow><m:msub><m:mi>I</m:mi><m:mi>k</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mi>p(t)cos(</m:mi></m:mrow>
+		<m:mrow><m:msub><m:mi>w</m:mi><m:mi>0</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mo>t+Ф);</m:mo></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:msub><m:mi>I</m:mi><m:mi>k</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mo>Є{0,1};</m:mo></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mi>0≤t≤T</m:mi></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mo>;    </m:mo></m:mrow>
+	</m:math>
+</para><para id="import-auto-id2164385">In Equation 4, the phase term is an arbitrary constant. Binary ASK signaling, also called on-off keying, was one of the earliest forms of digital modulation used in radio telegraphy. ASK has a high peak-to-average ratio and is no longer widely used; however, TI’s low-power wireless radio-frequency integrated circuits support this modulation scheme for various data rates in sensor applications.  Figures 1 - 4 shows waveforms for Amplitude Shift Keying.</para><para id="eip-700"><media id="import-auto-id1165" alt="">
+						<image mime-type="image/png" src="../../media/Picture 9.png" height="192" width="255"/>
+					</media>
+</para><para id="eip-87"><emphasis effect="bold">Figure 1. Amplitude Shift Keying source symbols.</emphasis></para><para id="eip-515"><media id="import-auto-id1166" alt="">
+						<image mime-type="image/png" src="../../media/Picture 10-9c78.png" height="192" width="255"/>
+					</media></para><para id="eip-672"><emphasis effect="bold">Figure 2. Amplitude Shift Keying modulated symbols.</emphasis></para><para id="eip-99"><media id="import-auto-id1167" alt="">
+						<image mime-type="image/png" src="../../media/Picture 21.png" height="192" width="255"/>
+					</media>
+</para><para id="eip-939"><emphasis effect="bold">Figure 3. Amplitude Shift Keying constellation plot.</emphasis></para><para id="eip-422"><media id="import-auto-id1168" alt="">
+						<image mime-type="image/png" src="../../media/Picture 0.png" height="192" width="255"/>
+					</media></para><para id="eip-454"><emphasis effect="bold">Figure 4. Amplitude Shift Keying spectrum.</emphasis></para><para id="import-auto-id1165662795785"><emphasis effect="bold">Frequency-shift keying</emphasis>
+    </para><para id="import-auto-id1165661459136">The general analytical expression for frequency shift keying (FSK) is given in Equation 5:
+
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-415"><m:math>
+<m:mrow><m:msub><m:mi>s</m:mi><m:mi>k</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mo>(t)</m:mo></m:mrow>
+		<m:mrow><m:mo>=</m:mo></m:mrow>
+		<m:mrow><m:mi>A</m:mi></m:mrow>
+		<m:mrow><m:mi>cos(</m:mi></m:mrow>
+		<m:mrow><m:msub><m:mi>w</m:mi><m:mi>0</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mi>t+2π</m:mi></m:mrow>
+<m:mrow><m:msub><m:mi>I</m:mi><m:mi>k</m:mi></m:msub></m:mrow>
+<m:mrow><m:mi>Δft+Ф);</m:mi></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mi>k = 1,...M;</m:mi></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mi>0≤t≤T</m:mi></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mo/></m:mrow>
+	</m:math>
+</para><para id="eip-889">Where:</para><para id="eip-230">The frequency Δf = the amount of shift in the carrier frequency corresponding to the alphabet I<sub>k</sub> ε{±1, ±3. . .,±M}</para><para id="eip-88">Phase term is an arbitrary constant.</para><para id="eip-327">The FSK waveform sketch in the following figures show typical frequency changes at the symbol interval. The change from one frequency to another can be rather abrupt; this gives rise to spikes in the spectrum of FSK. The minimum required bandwidth for orthogonal FSK signals for coherent detection is 1/2T, whereas for noncoherent detection the bandwidth is 1/T. FSK does not have constellation plots because of constant rotation of the signal vector in the IQ plane.  Figures 5 - 7 are typical waveforms for FSK.</para><para id="eip-426"><media id="import-auto-id11768" alt="">
+						<image mime-type="image/png" src="../../media/Picture 14.png" height="192" width="256"/>
+					</media></para><para id="eip-844"><emphasis effect="bold">Figure 5. Frequency Shift Keying symbol source.</emphasis></para><para id="eip-714"><media id="import-auto-id112120" alt="">
+						<image mime-type="image/png" src="../../media/Picture 15.png" height="192" width="256"/>
+					</media></para><para id="eip-121"><emphasis effect="bold">Figure 6. Frequency Shift Keying modulated symbols.</emphasis></para><para id="eip-701"><media id="import-auto-id8744" alt="">
+						<image mime-type="image/png" src="../../media/Picture 7-a2c6.png" height="192" width="256"/>
+					</media></para><para id="eip-485"><emphasis effect="bold">Figure 7. Frequency Shift Keying spectrum.</emphasis></para><para id="import-auto-id1165663273527"><emphasis effect="bold">Phase-shift keying</emphasis>
+    </para><para id="import-auto-id1165662746967">Developed the during early days of the space program, phase-shift keying (PSK) is widely used in commercial satellite links. The general expression for PSK is shown in Equation 6:
+
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-193"><m:math><m:mrow><m:msub><m:mi>s</m:mi><m:mi>k</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mo>(t)</m:mo></m:mrow>
+		<m:mrow><m:mo>=</m:mo></m:mrow>
+		<m:mrow><m:mi>p(t)cos(</m:mi></m:mrow>
+		<m:mrow><m:msub><m:mi>w</m:mi><m:mi>0</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mo>t+</m:mo></m:mrow>
+		<m:mrow><m:msub><m:mi>Ф</m:mi><m:mi>k</m:mi></m:msub></m:mrow>
+		<m:mrow><m:mo>);</m:mo></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mi>k = 1,...,M</m:mi></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mi>0≤t≤T</m:mi></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mo> </m:mo></m:mrow>
+	</m:math>
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id5875284">Where the phase term <m:math><m:mrow><m:msub><m:mi>Ф</m:mi><m:mi>i</m:mi></m:msub></m:mrow></m:math>
+will have M discrete values typically given by Equation 7:</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-909"><m:math><m:mrow><m:msub><m:mi>Ф</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:mrow><m:mi>(t) = </m:mi></m:mrow><m:mrow><m:mfrac><m:mi>2πk</m:mi><m:mi>M</m:mi></m:mfrac></m:mrow><m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mi>k = 1,...M</m:mi></m:mrow>
+		<m:mrow><m:mo>
+			</m:mo></m:mrow>
+		<m:mrow><m:mo> </m:mo></m:mrow>
+	</m:math>
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1165665035624">In the basic case of binary PSK, the modulating data signal shifts the phase of the waveforms to one of two states: either zero or <m:math><m:mrow><m:mi>π</m:mi></m:mrow></m:math>. The waveform sketch in the figure shows abrupt phase changes in the signaling interval.  Figures 8 through 11 are typical waveforms for a PSK modulation system.</para><para id="eip-565"><media id="import-auto-id88270" alt="">
+						<image mime-type="image/png" src="../../media/Picture 17.png" height="192" width="256"/>
+					</media></para><para id="eip-407"><emphasis effect="bold">Figure 8. Phase Shift Keying symbol source.</emphasis></para><para id="eip-154"><media id="import-auto-id116566147205" alt="">
+						<image mime-type="image/png" src="../../media/Picture 18.png" height="192" width="256"/>
+					</media></para><para id="eip-293"><emphasis effect="bold">Figure 9. Phase Shift Keying modulated symbols.</emphasis></para><para id="eip-748"><media id="import-auto-id11656609196" alt="">
+						<image mime-type="image/png" src="../../media/Picture 22.png" height="192" width="256"/>
+					</media></para><para id="eip-978"><emphasis effect="bold">Figure 10. Phase Shift Keying constellation plot.</emphasis></para><para id="eip-737"><media id="import-auto-id11656574968" alt="">
+						<image mime-type="image/png" src="../../media/Picture 8-27b8.png" height="192" width="256"/>
+					</media></para><para id="eip-698"><emphasis effect="bold">Figure 11. Phase Shift Keying spectrum.</emphasis></para><para id="import-auto-id1165657553726">
+      <emphasis effect="bold">Comparison metric for digital communication and BER curves</emphasis>
+    </para>
+    <para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1165661286728">One of the most important metrics of performance in digital communication is the plot of bit error probability <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:msub><m:mi>P</m:mi><m:mi>b</m:mi></m:msub></m:mrow></m:math>
+</emphasis></emphasis> versus energy per bit over noise power spectral density <emphasis effect="italics">(
+<m:math>
+			<m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+					<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+)</emphasis>. This dimensionless ratio is a standard quality measure for digital communication system performance. The smaller the 			<m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+				<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		 required, the more efficient the detection process for a given probability of error. In digital communication systems, one discrete symbol is transmitted that may be one bit or more in a fixed signaling interval. In analog, where the information source is continuous, this discrete structure does not exist. In digital systems, a figure of merit should allow us to compare one system with another at a bit or symbol level; hence <m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+				<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+renders itself naturally for that purpose. A relationship between the SNR, data rate and bandwidth is expressed in Equation 8:</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-392"><m:math>
+		<m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+				<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow>
+		<m:mrow><m:mo>=</m:mo></m:mrow>
+		<m:mrow><m:mfrac><m:mi>S</m:mi><m:mi>N</m:mi></m:mfrac></m:mrow>
+<m:mrow><m:mo>(</m:mo></m:mrow>
+
+		<m:mrow><m:mfrac><m:mi>B</m:mi><m:mi>R</m:mi></m:mfrac></m:mrow>
+<m:mrow><m:mo>)</m:mo></m:mrow>
+
+		<m:mrow><m:mo> </m:mo></m:mrow>
+	</m:math></para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-84">Figures 12 through 14 show typical <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:msub><m:mi>P</m:mi><m:mi>b</m:mi></m:msub></m:mrow></m:math>
+		</emphasis></emphasis> vs. <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis> curves for orthogonal and multiphase signaling.</para><para id="eip-427"><media id="import-auto-id11653337753" alt=""><image mime-type="image/png" src="../../media/Picture 26.png" height="240" width="319"/></media></para><para id="eip-3"><emphasis effect="bold">Figure 12. The curve to the left in the above chart represents M = 32 while the curve to the right represents M = 2.</emphasis></para><para id="eip-621"><media id="import-auto-id11650148850" alt=""><image mime-type="image/png" src="../../media/Picture 32.png" height="240" width="319"/></media></para><para id="eip-95"><emphasis effect="bold">Figure 13. The curve to the left in the above chart represents M = 2 and the curve to the right represents M = 32.</emphasis></para><para id="eip-839"><media id="import-auto-id11656574234" alt="">
+							<image mime-type="image/png" src="../../media/Picture 13.png" height="240" width="320"/>
+						</media></para><para id="eip-329"><emphasis effect="bold">Figure 14. BER comparisons of ASK, 2FSK and 2PSK</emphasis>
+</para><para id="import-auto-id1165661622304">Digital modulation methods can be classified in two ways, with opposite behavioral characteristics. The first class is orthogonal signaling; its error performance follows the curves in the first figure. The second class constitutes nonorthogonal signaling is shown in the second figure. Error performance improvement or degradation depends on signaling category.</para><para id="import-auto-id1165661808205"><emphasis effect="bold">Channel capacity</emphasis>
+    </para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1165657365876">Claude Shannon's fundamental theorem states that it is possible (in principle, using some coding scheme) to transmit information with an arbitrarily small probability of error, provided that the data rate <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mi>R</m:mi></m:mrow></m:math>
+</emphasis></emphasis> is less than or equal to the channel capacity <emphasis effect="bold"><m:math><m:mrow><m:mi>C</m:mi></m:mrow></m:math>
+<emphasis effect="italics"/></emphasis>. Shannon’s work showed that SNR and bandwidth set a limit on transmission rate but not on probability of error. The channel capacity of a white bandlimited Gaussian noise channel is expressed in Equation 9:
+
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-149"><emphasis effect="bold"><emphasis effect="italics"><m:math>
+				<m:mrow><m:mo>C = </m:mo></m:mrow>
+				<m:mrow><m:msub><m:mi>Blog</m:mi><m:mi>2</m:mi></m:msub></m:mrow>
+				<m:mrow><m:mo>(</m:mo></m:mrow>
+				<m:mrow><m:mo>1+</m:mo></m:mrow>
+				<m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow>
+				<m:mrow><m:mfrac><m:mi>B</m:mi><m:mi>R</m:mi></m:mfrac></m:mrow>
+				<m:mrow><m:mo>)</m:mo></m:mrow>
+				<m:mrow><m:mo>bits/sec/Hz</m:mo></m:mrow></m:math>
+		</emphasis></emphasis>
+				 <emphasis effect="bold"/>
+</para><para id="import-auto-id1165661429674">Where:</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-437"><emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mi>B</m:mi></m:mrow></m:math>
+		</emphasis></emphasis> = the channel bandwidth</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-336"><emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis> = the energy/bit with an example SNR of 30 dB</para><para id="eip-683">Using Equations 8 and 9, the capacity of a circuit with 2.4-kHz bandwidth is approximately 24 kbps, whereas at 10-dB SNR the capacity drops to about 8.3 kbps. Thus, Shannon's theorem allows designers to apply trade-offs in bandwidth, signal power and various modulation methods to establish a communication link with a desired probability of error. </para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id8823313">Similarly, the required <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+</emphasis></emphasis> for a modem operating at a channel capacity of 28.8 kbps in an AWGN bandwidth of 3.4 kHz will be approximately 16.3 dB.</para><para id="import-auto-id1165657366052"><emphasis effect="bold">Bandwidth and power constraints</emphasis></para><para id="import-auto-id1165663767058">The design of a digital communication system begins with the channel description, received power, available bandwidth, noise statistics, and definition of system requirements such as data rate and error performance.  Two primary communication criteria are the received power and available bandwidth. In bandwidth-limited systems, spectrally efficient schemes can save bandwidth at the expense of power. In power-limited systems, power-efficient schemes can be used at expense of bandwidth.</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id4312435">For any digital communication system, the relationship between received power to noise-power spectral density <emphasis effect="bold"><emphasis effect="italics">
+<m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>P</m:mi><m:mi>r</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+</emphasis></emphasis> and received <emphasis effect="bold"><emphasis effect="italics">
+<m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+</emphasis></emphasis> is given by Equation 10:
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-720"><emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>P</m:mi><m:mi>r</m:mi></m:msub></m:mrow>
+				<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow>
+		<m:mrow><m:mi>=</m:mi></m:mrow>
+		<m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+				<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow><m:mrow><m:mi>R</m:mi></m:mrow>
+	</m:math>
+</emphasis></emphasis>
+<emphasis effect="bold"/></para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1165660950597">Where <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow><m:mrow><m:mi>=</m:mi></m:mrow>
+		<m:mrow><m:mfrac><m:mi>N</m:mi><m:mi>B</m:mi></m:mfrac></m:mrow></m:math>
+</emphasis></emphasis>.  This relationship is frequently used in designing and evaluating digital communication systems.
+
+</para><para id="import-auto-id4014486"><emphasis effect="bold">Bandwidth-limited systems</emphasis></para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id4639667">Bandwidth efficiency increases as <emphasis effect="bold"><emphasis effect="italics">
+			<m:math>
+				<m:mrow><m:mi>B</m:mi></m:mrow>
+				<m:mrow><m:msub><m:mi>T</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+			</m:math>
+</emphasis></emphasis> product decreases. Therefore, signals with small <emphasis effect="bold"><emphasis effect="italics">
+			<m:math>
+				<m:mrow><m:mi>B</m:mi></m:mrow>
+				<m:mrow><m:msub><m:mi>T</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+			</m:math>
+		</emphasis></emphasis> products are employed in bandwidth-limited systems. In uncoded systems, the objective is to maximize the information rate within the allowable bandwidth at the expense of <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis> while maintaining a required <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:msub><m:mi>P</m:mi><m:mi>b</m:mi></m:msub></m:mrow></m:math>
+		</emphasis></emphasis>. MPSK and MQAM are examples of bandwidth-efficient modulation schemes with bandwidth efficiency (Equation 11):
+
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-263"><emphasis effect="bold"><emphasis effect="italics"><m:math>
+<m:mrow><m:mfrac><m:mi>R</m:mi><m:mi>B</m:mi></m:mfrac></m:mrow>
+				<m:mrow><m:mo> = </m:mo></m:mrow>
+				<m:mrow><m:msub><m:mi>log</m:mi><m:mi>2</m:mi></m:msub></m:mrow>
+				<m:mrow><m:mo>(</m:mo></m:mrow>
+				<m:mrow><m:mo>M</m:mo></m:mrow>
+				<m:mrow><m:mo>)</m:mo></m:mrow>
+				<m:mrow><m:mo>bits/sec/Hz</m:mo></m:mrow></m:math>
+		</emphasis></emphasis>
+	<emphasis effect="bold"/>
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1165663778826">Suppose you have to choose between MFSK and MPSK for the following parameters: bandwidth = 4 kHz, data rate = 10 kbps and <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>P</m:mi><m:mi>r</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis>= 60 dB-Hz. First you find that the received <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis> = 55 – 10*log10(10000) = 15 dB. Since the required data rate exceeds the bandwidth required, the best choice is MPSK. Next, decide on the value of M that will give a symbol rate closest to the bandwidth of 4 kHz. From M = 8, you know that the symbol rate is 3.2 kHz. Next, you'll see that for <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:msub><m:mi>P</m:mi><m:mi>b</m:mi></m:msub></m:mrow></m:math>
+</emphasis></emphasis> of less than 10e-5, the required bandwidth is around 13 (from BER curves) which is less than the received,  so the best choice is 8PSK.
+
+</para><para id="import-auto-id1165662798866"><emphasis effect="bold">Power-limited systems</emphasis>
+    </para><para id="import-auto-id1165658353646">For this type of system, where power is limited but bandwidth is abundant, the following trade-offs are possible:
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-677">1. Improved <emphasis effect="bold"><emphasis effect="italics"><m:math>
+				<m:mrow><m:msub><m:mi>P</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+			</m:math>
+		</emphasis></emphasis>  at the expense of bandwidth for fixed 
+<emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis>
+.  </para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-633">2. Reduction in <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis>
+ at the expense of bandwidth for fixed <emphasis effect="bold"><emphasis effect="italics">
+			<m:math><m:mrow><m:msub><m:mi>P</m:mi><m:mi>b</m:mi></m:msub></m:mrow></m:math>
+		</emphasis></emphasis> . </para><para id="eip-668">MFSK is an orthogonal signaling technique used in power-limited systems. It has a bandwidth efficiency of noncoherent MFSK given by Equation 12:</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-993"><emphasis effect="bold"><emphasis effect="italics">
+			<m:math>
+				<m:mrow><m:mfrac><m:mi>R</m:mi><m:mi>B</m:mi></m:mfrac></m:mrow>
+				<m:mrow><m:mo> = </m:mo></m:mrow>
+				<m:mrow><m:mfrac>
+						<m:mrow><m:mrow><m:msub><m:mi>log</m:mi><m:mi>2</m:mi></m:msub></m:mrow><m:mi>(M)</m:mi></m:mrow>
+						<m:mi>M</m:mi>
+					</m:mfrac></m:mrow>
+				<m:mrow><m:mo>bits/sec/Hz</m:mo></m:mrow></m:math>
+		</emphasis></emphasis>
+	<emphasis effect="bold"/>
+</para><para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1165663243269">Suppose you have an available bandwidth of 45 kHz and <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>P</m:mi><m:mi>r</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis>= 50 dB-Hz. Again the goal is to choose a modulation scheme to meet the same BER performance. The received <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis> = 50 – 10log(10000) = 10 dB. Since you have plenty of bandwidth compared to the data rate, the best modulation scheme would be MFSK. In an effort to conserve power, you should look for the largest M such that the minimum bandwidth for MFSK doesn’t exceed 45 kHz. For M = 16, the required <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>E</m:mi><m:mi>b</m:mi></m:msub></m:mrow>
+						<m:mrow><m:msub><m:mi>N</m:mi><m:mi>0</m:mi></m:msub></m:mrow></m:mfrac></m:mrow></m:math>
+		</emphasis></emphasis> to keep <emphasis effect="bold"><emphasis effect="italics"><m:math><m:mrow><m:msub><m:mi>P</m:mi><m:mi>b</m:mi></m:msub></m:mrow></m:math>
+</emphasis></emphasis>  less than 10e-5 is around 8 dB (from BER curves), which is below 8.2 dB.
+
+</para><para id="import-auto-id7165568"><emphasis effect="bold">References</emphasis>
+    </para><para id="import-auto-id1165657578680">1. Sklar, Bernard. Digital Communications: Fundamentals and Applications. Prentice Hall, 2001. <link url="http://books.google.com/books/about/Digital_communications.html?id=Bh4fAQAAIAAJ "><emphasis effect="underline">http://books.google.com/books/about/Digital_communications.html?id=Bh4fAQAAIAAJ</emphasis></link>
+</para><para id="import-auto-id1165661033763">2. Molisch, Andreas F. Wireless Communications. John Wiley and Sons, 2010. <link url="http://books.google.com/books/about/Wireless_Communications.html?id=vASyH5-jfMYC"><emphasis effect="underline">http://books.google.com/books/about/Wireless_Communications.html?id=vASyH5-jfMYC</emphasis></link>
+
+</para><para id="import-auto-id1165665044166">3. Johnson, C. Richard, and Sethares, William A. Telecommunication Breakdown: Concepts of Communication Transmitted Via Software-Defined Radio. Prentice Hall, 2004.</para><para id="import-auto-id1165657604102">4. Gu, Qizheng. RF System Design of Transceivers for Wireless Communications. Springer, 2005. <link url="http://books.google.com/books?id=fuUwM1Hiu24C "><emphasis effect="underline">http://books.google.com/books?id=fuUwM1Hiu24C</emphasis></link></para></content>
+</document>

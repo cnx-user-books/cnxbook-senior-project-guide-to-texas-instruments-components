@@ -1,0 +1,64 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>The C2000™ family of microcontrollers from Texas Instruments</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44327</md:content-id>
+  <md:title>The C2000™ family of microcontrollers from Texas Instruments</md:title>
+  <md:abstract>This module gives an overview of the C2000™ family of microcontrollers from Texas Instruments. It includes an overview of the architecture, helpful hints on how to read data sheets and a quick guide to pick the right device for a project.
+This module is part of a collection of modules aimed at seniors in college who are starting to work on their senior project.</md:abstract>
+  <md:uuid>dbf7b595-c783-4eb9-9bb1-9caf3163d290</md:uuid>
+</metadata>
+
+<content>
+    <para id="import-auto-id1165995404905">The TMS320C2000™ family of microcontrollers (also known as the C2000™ family) is a product line aimed at high-performance control applications such as motor control, digital power supplies, lighting, renewable energy and smart grid. This family is made up of several subfamilies, with names like:</para><list id="import-auto-id1165995879447" list-type="bulleted"><item>C24xx: A 16-bit microcontroller that evolved from the TMS320C2x family of digital signal processors.</item>
+      <item>C27xx: A 16-bit microcontroller that is no longer recommended for new designs, so we will not cover it here.</item>
+      <item>C28xx: The current family of devices that are 32-bit fixed or floating point, with a robust set of peripherals and I/Os to match the exhaustable need for performance in control applications.</item>
+    </list><para id="import-auto-id1165995415696">The C28xx family is further divided into:</para>
+    
+    <para id="import-auto-id1165997536479">Delfino™ floating-point MCUs:</para><list id="import-auto-id1165998091472" list-type="bulleted"><item>Performance: 100-300 MHz.</item>
+      <item>Memory:<list id="import-auto-id1166001448382" list-type="bulleted"><item>Up to 512-kB flash.</item><item>Up to 516-kB SRAM.</item></list></item>
+      <item>Key peripherals: ADC, PWM, QEP, DMA, SPI, UART, I2C, CAN, EMIF.</item>
+    </list><para id="eip-227">Piccolo™ fixed-point MCUs:</para><list id="import-auto-id1165996784065" list-type="bulleted"><item><list id="import-auto-id1165996730159" list-type="bulleted"><item>Performance: 40-80 MHz.</item><item>Memory:<list id="import-auto-id1165995395828" list-type="bulleted"><item>16 to 128-kB flash.</item><item>6- to 100-kB SRAM.</item></list></item><item>Key peripherals: ADC, PWM, QEP, DMA, SPI, UART, I2C, CAN, USB.</item></list></item>
+      <item><para id="eip-141">Concerto™ C28x core plus M4 ARM processor:</para><list id="import-auto-id1166010306150" list-type="bulleted"><item>Performance:  <list id="import-auto-id1165991337176" list-type="bulleted"><item>Dual core:<list id="import-auto-id1165996201299" list-type="bulleted"><item>Up to 150 MHz 28x CPU.</item><item>Up to 100 MHz M3 CPU.</item></list></item><item>Floating-point unit.</item><item>VCU accelerator.</item></list></item><item>Memory:<list id="import-auto-id1165995346302" list-type="bulleted"><item>16- to 128-kB flash.</item><item>6- to 100-kB SRAM.</item></list></item><item>Key peripherals: ADC, PWM, QEP, DMA, SPI, UART, I2C, CAN, USB, EMIF, EMAC.</item></list></item>
+    </list><para id="import-auto-id1165997372017">Let's use the Piccolo MCU to overview the architecture of the family, specifically the TMS320F28027. I have chosen this device because it's the one used in the C2000 LaunchPad™ development tool (shown in Figure 1).</para><figure id="import-auto-id1165995365598"><media id="import-auto-id1165997376448" alt="">
+		<image mime-type="image/jpg" src="../../media/graphics1-c3dd.jpg" height="253" width="257"/>
+	</media>
+</figure><para id="import-auto-id1165995381714">
+      <emphasis effect="bold">Architecture</emphasis>
+    </para>
+    <para id="import-auto-id1165999693415">A quick look at the CPU:</para>
+    <list id="import-auto-id1165996332047" list-type="bulleted"><item>High-efficiency 32-bit CPU:<list id="import-auto-id1166010304935" list-type="bulleted"><item>Clock frequencies of 40, 50 and 60 MHz.</item><item>16-bit and 32-bit hardware multiply and accumulate (MAC) operations, including a dual 16-bit MAC capability.</item></list></item>
+      <item>Harvard bus architecture: two buses, with one for program and one for data.</item>
+      <item>On-chip memory – flash, SARAM, OTP, boot ROM.</item>
+    </list><para id="import-auto-id1165995916322">Figure 2 is a block diagram of the CPU.</para><figure id="import-auto-id1165996418085"><media id="import-auto-id1165995371101" alt="">
+		<image mime-type="image/jpg" src="../../media/graphics2-2d56.jpg" height="910" width="795"/>
+	</media>
+	</figure><para id="import-auto-id1165995998749">Let’s move on and look at the data sheet.</para><para id="import-auto-id1165998442051"><emphasis effect="bold">Data sheet</emphasis>
+    </para><para id="import-auto-id1165995461287">The data sheet covers the whole family of devices, with their differences being the amount of memory and selection of peripherals and I/Os. Look at these key areas of the data sheet to glean the information you need to select the right part:</para><list id="import-auto-id1165996140345" list-type="bulleted"><item>The front page of the data sheet. This will give you an overview of the features of the whole family. You will need to look deeper into the data sheet for specific configurations for each part number in the family. You can also find tools to help you select the right part for your project at <link url="http://www.ti.com/"><emphasis effect="underline">www.ti.com</emphasis>.</link></item>
+      <item>The electrical specifications will give you the information you need to plan your power requirements and electrical characteristics.</item>
+      <item>The packaging choices and pin descriptions will also be of great use when drawing the schematic, building the prototype, and laying out the printed circuit board.</item>
+      <item>The remainder of the data sheet will give you the details you need to successfully design in the device.</item>
+    </list><para id="import-auto-id1165996027027"><emphasis effect="bold">How to pick your device</emphasis></para><para id="import-auto-id1165995349268">As with all of our embedded processors, your best choice of a device for your senior project will be one with a development tool. For this family, it could be any one of many evaluation modules (EVMs) available from TI. For example, this chapter is written around the C2000 LaunchPad development tool. Here is a partial list of C2000 EVMs:</para><list id="import-auto-id1165995469399" list-type="bulleted"><item>Control cards (Figure 3).</item>
+    </list><figure id="import-auto-id1166000379873"><media id="import-auto-id1165996518260" alt="">
+		<image mime-type="image/png" src="../../media/Picture 2.png" height="51" width="182"/>
+	</media>
+</figure><list id="import-auto-id1165995498628" list-type="bulleted"><item>Concerto H52C1.</item>
+      <item>Piccolo F28027.</item>
+      <item>Piccolo F28035.</item>
+      <item>Piccolo F28069.</item>
+      <item>Delfino F28335.</item>
+      <item>Delfino C28436.</item>
+      <item>F2808.</item>
+      <item>F28044.</item>
+    </list><list id="import-auto-id1165998889041" list-type="bulleted"><item>Experimenters kit (Figure 4).</item>
+    </list><figure id="import-auto-id1165998375203"><media id="import-auto-id1165992850643" alt="">
+		<image mime-type="image/jpg" src="../../media/Picture 1-c9d2.jpg" height="90" width="201"/>
+	</media>
+</figure><list id="import-auto-id1165998831692" list-type="bulleted"><item>ControlSTICK (Figure 5).</item>
+    </list><figure id="import-auto-id1166004411191"><media id="import-auto-id1165995410765" alt="">
+		<image mime-type="image/png" src="../../media/Picture 3.png" height="150" width="186"/>
+	</media>
+	</figure><para id="eip-930">Application development kits:</para><list id="import-auto-id1165995395114" list-type="bulleted"><item>Motor control.</item>
+      <item>Digital power.</item>
+      <item>Energy and light.</item>
+    </list><para id="import-auto-id1165995454498">For your senior project, the best of these will probably be the ControlSTICK or the LaunchPad development tool. But don’t ignore the application development kits if they fit your need.</para></content>
+</document>
